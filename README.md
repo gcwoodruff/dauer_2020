@@ -1,4 +1,4 @@
-Here are brief descriptions of the code and data associated with Hammerschmith, Woodruff, and Phillips 2020 "Opposing directions of stage-specific body length change in a close relative of _C. elegans_".
+Here are brief descriptions of the code and data associated with Hammerschmith, Woodruff, and Phillips 2020 "Opposing directions of stage-specific body length change in a close relative of _C. elegans_."
 
 If there are any questions about this please contact me at gavincw@uoregon.edu.
 
