@@ -74,7 +74,7 @@ library(ggplot2)
 library(ggmap)
 
 #used google maps will need api key, uncomment line below with a working key
-#register_google(key = "AIzaSyD53aGEfDTP4c-ncXFA0TM3tgctFfoX0pU")
+#register_google(key = "")
 
 
 loc_dat <- read.table("strains_dauer_paper_gps.tsv", header=TRUE, sep="\t")
