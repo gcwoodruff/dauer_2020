@@ -1,0 +1,121 @@
+.y.	group1	group2	n1	n2	statistic	p	p.adj	p.adj.signif
+width	C. inopinata Dauer	C. elegans Dauer	97	113	10530.5	1.02e-30	1.22e-28	****
+width	C. inopinata Dauer	C. briggsae Dauer	97	85	8036	2.12e-28	1.27e-26	****
+width	C. inopinata Dauer	C. tropicalis Dauer	97	93	8539.5	1.7e-26	6.8e-25	****
+width	C. inopinata Dauer	C. elegans L1	97	40	3874	4.51e-20	6.01e-19	****
+width	C. inopinata Dauer	C. elegans L2	97	40	3113	2.47e-08	3.26e-08	****
+width	C. inopinata Dauer	C. elegans L3	97	36	612.5	8.52e-09	1.18e-08	****
+width	C. inopinata Dauer	C. elegans L4	97	41	27.5	5.65e-20	6.48e-19	****
+width	C. inopinata Dauer	C. elegans Young adult	97	30	6	1.72e-16	7.28e-16	****
+width	C. inopinata Dauer	C. elegans Gravid adult	97	40	0	3.64e-20	5.46e-19	****
+width	C. inopinata Dauer	C. inopinata L1	97	20	1936	2.37e-12	4.99e-12	****
+width	C. inopinata Dauer	C. inopinata L2	97	22	1660.5	4.63e-05	5.39e-05	****
+width	C. inopinata Dauer	C. inopinata L3	97	40	564	6.67e-11	1.23e-10	****
+width	C. inopinata Dauer	C. inopinata L4	97	33	24	2.94e-17	1.53e-16	****
+width	C. inopinata Dauer	C. inopinata Young adult	97	16	1	1.57e-10	2.73e-10	****
+width	C. inopinata Dauer	C. inopinata Gravid adult	97	32	0	2.28e-17	1.24e-16	****
+width	C. elegans Dauer	C. briggsae Dauer	113	85	5148.5	0.384	0.387	ns
+width	C. elegans Dauer	C. tropicalis Dauer	113	93	4513	0.08	0.084	ns
+width	C. elegans Dauer	C. elegans L1	113	40	3207.5	7.54e-05	8.7e-05	****
+width	C. elegans Dauer	C. elegans L2	113	40	461	6.77e-14	1.93e-13	****
+width	C. elegans Dauer	C. elegans L3	113	36	4.5	1.88e-19	1.73e-18	****
+width	C. elegans Dauer	C. elegans L4	113	41	0	2.38e-21	7.14e-20	****
+width	C. elegans Dauer	C. elegans Young adult	113	30	0	3.68e-17	1.7e-16	****
+width	C. elegans Dauer	C. elegans Gravid adult	113	40	0	5.4e-21	1.3e-19	****
+width	C. elegans Dauer	C. inopinata L1	113	20	1335.5	0.194	0.199	ns
+width	C. elegans Dauer	C. inopinata L2	113	22	497.5	8.36e-06	1.01e-05	****
+width	C. elegans Dauer	C. inopinata L3	113	40	22.5	1.31e-20	2.62e-19	****
+width	C. elegans Dauer	C. inopinata L4	113	33	0	2.29e-18	1.62e-17	****
+width	C. elegans Dauer	C. inopinata Young adult	113	16	0	9.31e-11	1.67e-10	****
+width	C. elegans Dauer	C. inopinata Gravid adult	113	32	0	5.71e-18	3.43e-17	****
+width	C. briggsae Dauer	C. tropicalis Dauer	85	93	3036	0.007	0.008	**
+width	C. briggsae Dauer	C. elegans L1	85	40	2321	0.000946	0.001	**
+width	C. briggsae Dauer	C. elegans L2	85	40	244.5	1.1e-14	4e-14	****
+width	C. briggsae Dauer	C. elegans L3	85	36	0	3.52e-18	2.22e-17	****
+width	C. briggsae Dauer	C. elegans L4	85	41	0	1.01e-19	1.01e-18	****
+width	C. briggsae Dauer	C. elegans Young adult	85	30	0	4.02e-16	1.61e-15	****
+width	C. briggsae Dauer	C. elegans Gravid adult	85	40	0	2.02e-19	1.73e-18	****
+width	C. briggsae Dauer	C. inopinata L1	85	20	954	0.395	0.395	ns
+width	C. briggsae Dauer	C. inopinata L2	85	22	297	7.92e-07	9.9e-07	****
+width	C. briggsae Dauer	C. inopinata L3	85	40	9.5	3.17e-19	2.38e-18	****
+width	C. briggsae Dauer	C. inopinata L4	85	33	0	3.58e-17	1.7e-16	****
+width	C. briggsae Dauer	C. inopinata Young adult	85	16	0	2.26e-10	3.82e-10	****
+width	C. briggsae Dauer	C. inopinata Gravid adult	85	32	0	7.94e-17	3.53e-16	****
+width	C. tropicalis Dauer	C. elegans L1	93	40	2955.5	6.36e-08	8.21e-08	****
+width	C. tropicalis Dauer	C. elegans L2	93	40	449.5	3.74e-12	7.74e-12	****
+width	C. tropicalis Dauer	C. elegans L3	93	36	17.5	2.77e-18	1.85e-17	****
+width	C. tropicalis Dauer	C. elegans L4	93	41	0	2.85e-20	4.89e-19	****
+width	C. tropicalis Dauer	C. elegans Young adult	93	30	0	1.76e-16	7.28e-16	****
+width	C. tropicalis Dauer	C. elegans Gravid adult	93	40	0	5.94e-20	6.48e-19	****
+width	C. tropicalis Dauer	C. inopinata L1	93	20	1298	0.005	0.006	**
+width	C. tropicalis Dauer	C. inopinata L2	93	22	507.5	0.000229	0.000259	***
+width	C. tropicalis Dauer	C. inopinata L3	93	40	31	2.39e-19	1.91e-18	****
+width	C. tropicalis Dauer	C. inopinata L4	93	33	0	1.39e-17	7.94e-17	****
+width	C. tropicalis Dauer	C. inopinata Young adult	93	16	0	1.63e-10	2.79e-10	****
+width	C. tropicalis Dauer	C. inopinata Gravid adult	93	32	0	3.21e-17	1.6e-16	****
+width	C. elegans L1	C. elegans L2	40	40	9	2.08e-14	6.57e-14	****
+width	C. elegans L1	C. elegans L3	40	36	0	5.28e-14	1.58e-13	****
+width	C. elegans L1	C. elegans L4	40	41	0	8.02e-15	3.1e-14	****
+width	C. elegans L1	C. elegans Young adult	40	30	0	8.71e-13	1.97e-12	****
+width	C. elegans L1	C. elegans Gravid adult	40	40	0	1.17e-14	4.01e-14	****
+width	C. elegans L1	C. inopinata L1	40	20	252.5	0.018	0.02	*
+width	C. elegans L1	C. inopinata L2	40	22	29.5	1.2e-09	1.78e-09	****
+width	C. elegans L1	C. inopinata L3	40	40	0	1.16e-14	4.01e-14	****
+width	C. elegans L1	C. inopinata L4	40	33	0	2.09e-13	5.57e-13	****
+width	C. elegans L1	C. inopinata Young adult	40	16	0	4.98e-09	7.03e-09	****
+width	C. elegans L1	C. inopinata Gravid adult	40	32	0	3.36e-13	8.23e-13	****
+width	C. elegans L2	C. elegans L3	40	36	4.5	8e-14	2.23e-13	****
+width	C. elegans L2	C. elegans L4	40	41	0	8.57e-15	3.21e-14	****
+width	C. elegans L2	C. elegans Young adult	40	30	0	9.5e-13	2.11e-12	****
+width	C. elegans L2	C. elegans Gravid adult	40	40	0	1.25e-14	4.17e-14	****
+width	C. elegans L2	C. inopinata L1	40	20	793.5	5.69e-10	8.98e-10	****
+width	C. elegans L2	C. inopinata L2	40	22	531.5	0.177	0.183	ns
+width	C. elegans L2	C. inopinata L3	40	40	41	2.5e-13	6.38e-13	****
+width	C. elegans L2	C. inopinata L4	40	33	0	2.27e-13	5.92e-13	****
+width	C. elegans L2	C. inopinata Young adult	40	16	0	5.59e-09	7.8e-09	****
+width	C. elegans L2	C. inopinata Gravid adult	40	32	0	3.65e-13	8.76e-13	****
+width	C. elegans L3	C. elegans L4	36	41	13	1.24e-13	3.38e-13	****
+width	C. elegans L3	C. elegans Young adult	36	30	3	4.23e-12	8.58e-12	****
+width	C. elegans L3	C. elegans Gravid adult	36	40	0	6.36e-14	1.86e-13	****
+width	C. elegans L3	C. inopinata L1	36	20	720	6.4e-10	9.85e-10	****
+width	C. elegans L3	C. inopinata L2	36	22	733	6.11e-08	7.97e-08	****
+width	C. elegans L3	C. inopinata L3	36	40	488	0.015	0.017	*
+width	C. elegans L3	C. inopinata L4	36	33	10	2.07e-12	4.44e-12	****
+width	C. elegans L3	C. inopinata Young adult	36	16	1	1.12e-08	1.51e-08	****
+width	C. elegans L3	C. inopinata Gravid adult	36	32	0	1.35e-12	2.95e-12	****
+width	C. elegans L4	C. elegans Young adult	41	30	260.5	3.65e-05	4.29e-05	****
+width	C. elegans L4	C. elegans Gravid adult	41	40	14	2.65e-14	8.15e-14	****
+width	C. elegans L4	C. inopinata L1	41	20	820	2.93e-10	4.88e-10	****
+width	C. elegans L4	C. inopinata L2	41	22	902	7.94e-11	1.44e-10	****
+width	C. elegans L4	C. inopinata L3	41	40	1537	1.21e-11	2.34e-11	****
+width	C. elegans L4	C. inopinata L4	41	33	586	0.326	0.332	ns
+width	C. elegans L4	C. inopinata Young adult	41	16	77	8.39e-06	1.01e-05	****
+width	C. elegans L4	C. inopinata Gravid adult	41	32	0	3.05e-13	7.62e-13	****
+width	C. elegans Young adult	C. elegans Gravid adult	30	40	80	6.65e-10	1.01e-09	****
+width	C. elegans Young adult	C. inopinata L1	30	20	600	2.78e-09	3.97e-09	****
+width	C. elegans Young adult	C. inopinata L2	30	22	660	1e-09	1.5e-09	****
+width	C. elegans Young adult	C. inopinata L3	30	40	1177.5	7.12e-12	1.4e-11	****
+width	C. elegans Young adult	C. inopinata L4	30	33	744	0.00061	0.000684	***
+width	C. elegans Young adult	C. inopinata Young adult	30	16	161	0.07	0.073	ns
+width	C. elegans Young adult	C. inopinata Gravid adult	30	32	9.5	3.48e-11	6.63e-11	****
+width	C. elegans Gravid adult	C. inopinata L1	40	20	800	3.5e-10	5.68e-10	****
+width	C. elegans Gravid adult	C. inopinata L2	40	22	880	9.68e-11	1.71e-10	****
+width	C. elegans Gravid adult	C. inopinata L3	40	40	1600	1.37e-14	4.44e-14	****
+width	C. elegans Gravid adult	C. inopinata L4	40	33	1308	6.76e-13	1.56e-12	****
+width	C. elegans Gravid adult	C. inopinata Young adult	40	16	527	0.000177	0.000202	***
+width	C. elegans Gravid adult	C. inopinata Gravid adult	40	32	436.5	0.021	0.023	*
+width	C. inopinata L1	C. inopinata L2	20	22	30	1.58e-06	1.93e-06	****
+width	C. inopinata L1	C. inopinata L3	20	40	0	3.44e-10	5.65e-10	****
+width	C. inopinata L1	C. inopinata L4	20	33	0	1.36e-09	1.99e-09	****
+width	C. inopinata L1	C. inopinata Young adult	20	16	0	3.39e-07	4.28e-07	****
+width	C. inopinata L1	C. inopinata Gravid adult	20	32	0	1.74e-09	2.52e-09	****
+width	C. inopinata L2	C. inopinata L3	22	40	50.5	9.97e-09	1.36e-08	****
+width	C. inopinata L2	C. inopinata L4	22	33	1	5.01e-10	8.02e-10	****
+width	C. inopinata L2	C. inopinata Young adult	22	16	0	2.05e-07	2.62e-07	****
+width	C. inopinata L2	C. inopinata Gravid adult	22	32	0	5.94e-10	9.26e-10	****
+width	C. inopinata L3	C. inopinata L4	40	33	69	5.55e-11	1.04e-10	****
+width	C. inopinata L3	C. inopinata Young adult	40	16	7	1.37e-08	1.83e-08	****
+width	C. inopinata L3	C. inopinata Gravid adult	40	32	0	4.07e-13	9.58e-13	****
+width	C. inopinata L4	C. inopinata Young adult	33	16	69	3.25e-05	3.86e-05	****
+width	C. inopinata L4	C. inopinata Gravid adult	33	32	0	4.29e-12	8.58e-12	****
+width	C. inopinata Young adult	C. inopinata Gravid adult	16	32	35	1.39e-06	1.72e-06	****

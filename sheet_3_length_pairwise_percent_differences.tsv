@@ -1,0 +1,17 @@
+C. inopinata Dauer	C. elegans Dauer	C. briggsae Dauer	C. tropicalis Dauer	C. elegans L1	C. elegans L2	C. elegans L3	C. elegans L4	C. elegans Young adult	C. elegans Gravid adult	C. inopinata L1	C. inopinata L2	C. inopinata L3	C. inopinata L4	C. inopinata Young adult	C. inopinata Gravid adult
+C. inopinata Dauer	0	6	5	16	-42	-11	21	74	94	129	-25	2	60	121	217	274
+C. elegans Dauer	-6	0	-1	9	-46	-16	14	64	83	115	-30	-4	51	108	199	253
+C. briggsae Dauer	-5	1	0	11	-45	-15	15	66	85	118	-29	-3	53	110	203	257
+C. tropicalis Dauer	-14	-9	-10	0	-50	-23	4	50	67	97	-36	-12	38	90	173	222
+C. elegans L1	73	84	82	101	0	55	109	202	236	296	29	77	178	282	450	549
+C. elegans L2	12	19	17	30	-36	0	35	95	117	155	-17	14	79	147	255	318
+C. elegans L3	-17	-12	-13	-4	-52	-26	0	44	61	90	-38	-15	33	83	163	211
+C. elegans L4	-43	-39	-40	-33	-67	-49	-31	0	11	31	-57	-41	-8	27	82	115
+C. elegans Young adult	-48	-45	-46	-40	-70	-54	-38	-10	0	18	-61	-47	-17	14	64	93
+C. elegans Gravid adult	-56	-54	-54	-49	-75	-61	-47	-24	-15	0	-67	-55	-30	-3	39	64
+C. inopinata L1	34	42	41	56	-23	20	62	134	160	206	0	37	115	196	326	402
+C. inopinata L2	-2	4	3	14	-43	-12	18	71	90	124	-27	0	57	116	211	267
+C. inopinata L3	-38	-34	-35	-28	-64	-44	-25	9	21	43	-53	-36	0	38	98	134
+C. inopinata L4	-55	-52	-52	-47	-74	-59	-45	-21	-12	4	-66	-54	-27	0	44	70
+C. inopinata Young adult	-68	-67	-67	-63	-82	-72	-62	-45	-39	-28	-77	-68	-49	-31	0	18
+C. inopinata Gravid adult	-73	-72	-72	-69	-85	-76	-68	-53	-48	-39	-80	-73	-57	-41	-15	0

@@ -1,0 +1,17 @@
+species.stage	N	Min.	X1st.Qu.	Median	Mean	X3rd.Qu.	Max.	sd
+C. inopinata Dauer	97	326	399	432	429	462	524	45
+C. elegans Dauer	113	333	399	444	456	496	662	65
+C. briggsae Dauer	85	319	423	452	451	480	574	45
+C. tropicalis Dauer	93	340	464	496	499	534	604	48
+C. elegans L1	40	201	229	248	248	264	314	25
+C. elegans L2	40	322	358	377	384	401	484	39
+C. elegans L3	36	403	502	520	518	538	642	47
+C. elegans L4	41	632	714	749	748	774	870	47
+C. elegans Young adult	30	686	812	826	832	874	1022	69
+C. elegans Gravid adult	40	842	921	962	982	1052	1143	78
+C. inopinata L1	20	266	311	323	320	336	345	19
+C. inopinata L2	22	328	378	446	438	479	552	67
+C. inopinata L3	40	512	582	710	689	782	860	104
+C. inopinata L4	33	759	890	960	947	994	1064	72
+C. inopinata Young adult	16	1127	1276	1372	1363	1456	1582	127
+C. inopinata Gravid adult	32	1319	1510	1596	1608	1702	1821	120

@@ -1,0 +1,121 @@
+.y.	group1	group2	effsize	n1	n2	conf.low	conf.high	magnitude
+length	C. inopinata Dauer	C. elegans Dauer	-0.471276372548737	97	113	-0.74	-0.23	small
+length	C. inopinata Dauer	C. briggsae Dauer	-0.470752847110888	97	85	-0.78	-0.18	small
+length	C. inopinata Dauer	C. tropicalis Dauer	-1.49092186262055	97	93	-1.86	-1.18	large
+length	C. inopinata Dauer	C. elegans L1	5.01796833734366	97	40	4.44	5.8	large
+length	C. inopinata Dauer	C. elegans L2	1.07128999676717	97	40	0.66	1.59	large
+length	C. inopinata Dauer	C. elegans L3	-1.91790209223778	97	36	-2.51	-1.47	large
+length	C. inopinata Dauer	C. elegans L4	-6.94308641114781	97	41	-8.17	-6.11	large
+length	C. inopinata Dauer	C. elegans Young adult	-6.93830221008673	97	30	-8.76	-5.8	large
+length	C. inopinata Dauer	C. elegans Gravid adult	-8.65089828381574	97	40	-9.84	-7.83	large
+length	C. inopinata Dauer	C. inopinata L1	3.17578293679919	97	20	2.74	3.73	large
+length	C. inopinata Dauer	C. inopinata L2	-0.147291752128445	97	22	-0.66	0.43	negligible
+length	C. inopinata Dauer	C. inopinata L3	-3.24719639770054	97	40	-4.02	-2.76	large
+length	C. inopinata Dauer	C. inopinata L4	-8.62999492114791	97	33	-10.95	-7.2	large
+length	C. inopinata Dauer	C. inopinata Young adult	-9.84023520779856	97	16	-14.15	-8	large
+length	C. inopinata Dauer	C. inopinata Gravid adult	-12.9922689866713	97	32	-16.01	-10.91	large
+length	C. elegans Dauer	C. briggsae Dauer	0.0949822826144075	113	85	-0.19	0.35	negligible
+length	C. elegans Dauer	C. tropicalis Dauer	-0.750864228032929	113	93	-1.08	-0.46	moderate
+length	C. elegans Dauer	C. elegans L1	4.21731742098645	113	40	3.74	4.8	large
+length	C. elegans Dauer	C. elegans L2	1.32825453354194	113	40	1	1.72	large
+length	C. elegans Dauer	C. elegans L3	-1.08867426177646	113	36	-1.51	-0.71	large
+length	C. elegans Dauer	C. elegans L4	-5.14353665815371	113	41	-6.11	-4.49	large
+length	C. elegans Dauer	C. elegans Young adult	-5.61476918437793	113	30	-6.96	-4.81	large
+length	C. elegans Dauer	C. elegans Gravid adult	-7.29359969381164	113	40	-8.33	-6.61	large
+length	C. elegans Dauer	C. inopinata L1	2.82311532018029	113	20	2.52	3.23	large
+length	C. elegans Dauer	C. inopinata L2	0.272421616146361	113	22	-0.24	0.76	small
+length	C. elegans Dauer	C. inopinata L3	-2.68945700135456	113	40	-3.31	-2.27	large
+length	C. elegans Dauer	C. inopinata L4	-7.15172224706236	113	33	-8.69	-6.11	large
+length	C. elegans Dauer	C. inopinata Young adult	-9.01694543624769	113	16	-12.14	-7.47	large
+length	C. elegans Dauer	C. inopinata Gravid adult	-11.9151188167766	113	32	-14.71	-10.27	large
+length	C. briggsae Dauer	C. tropicalis Dauer	-1.04038897925177	85	93	-1.39	-0.73	large
+length	C. briggsae Dauer	C. elegans L1	5.6128964370471	85	40	4.8	6.69	large
+length	C. briggsae Dauer	C. elegans L2	1.57328559700785	85	40	1.12	2.21	large
+length	C. briggsae Dauer	C. elegans L3	-1.46323377019903	85	36	-2.01	-1.04	large
+length	C. briggsae Dauer	C. elegans L4	-6.49388178165158	85	41	-7.81	-5.7	large
+length	C. briggsae Dauer	C. elegans Young adult	-6.58146884069757	85	30	-8.52	-5.47	large
+length	C. briggsae Dauer	C. elegans Gravid adult	-8.32733006729458	85	40	-9.72	-7.44	large
+length	C. briggsae Dauer	C. inopinata L1	3.7985646807319	85	20	3.23	4.64	large
+length	C. briggsae Dauer	C. inopinata L2	0.223066701105567	85	22	-0.31	0.79	small
+length	C. briggsae Dauer	C. inopinata L3	-2.98482958561857	85	40	-3.68	-2.52	large
+length	C. briggsae Dauer	C. inopinata L4	-8.28633949447031	85	33	-10.45	-6.91	large
+length	C. briggsae Dauer	C. inopinata Young adult	-9.62169558159342	85	16	-13.74	-8.01	large
+length	C. briggsae Dauer	C. inopinata Gravid adult	-12.7650247818266	85	32	-15.86	-10.88	large
+length	C. tropicalis Dauer	C. elegans L1	6.541484902668	93	40	5.76	7.62	large
+length	C. tropicalis Dauer	C. elegans L2	2.60138418305767	93	40	2.07	3.28	large
+length	C. tropicalis Dauer	C. elegans L3	-0.396272256772361	93	36	-0.79	-0.02	small
+length	C. tropicalis Dauer	C. elegans L4	-5.23115737890887	93	41	-6.14	-4.62	large
+length	C. tropicalis Dauer	C. elegans Young adult	-5.60713511553141	93	30	-7.19	-4.68	large
+length	C. tropicalis Dauer	C. elegans Gravid adult	-7.41575157117794	93	40	-8.54	-6.72	large
+length	C. tropicalis Dauer	C. inopinata L1	4.8715376008659	93	20	4.24	5.75	large
+length	C. tropicalis Dauer	C. inopinata L2	1.04750111527407	93	22	0.56	1.71	large
+length	C. tropicalis Dauer	C. inopinata L3	-2.3471828291833	93	40	-2.97	-1.93	large
+length	C. tropicalis Dauer	C. inopinata L4	-7.30936886796488	93	33	-9.06	-6.12	large
+length	C. tropicalis Dauer	C. inopinata Young adult	-9.02715061372262	93	16	-12.53	-7.32	large
+length	C. tropicalis Dauer	C. inopinata Gravid adult	-12.1075589712595	93	32	-15.01	-10.22	large
+length	C. elegans L1	C. elegans L2	-4.14798265822982	40	40	-5.16	-3.61	large
+length	C. elegans L1	C. elegans L3	-7.14572213748856	40	36	-9.99	-5.77	large
+length	C. elegans L1	C. elegans L4	-13.323711863399	40	41	-16.74	-11.33	large
+length	C. elegans L1	C. elegans Young adult	-11.3063994978525	40	30	-15.52	-9.18	large
+length	C. elegans L1	C. elegans Gravid adult	-12.6272979191979	40	40	-15.1	-11.2	large
+length	C. elegans L1	C. inopinata L1	-3.29474513544651	40	20	-4.61	-2.5	large
+length	C. elegans L1	C. inopinata L2	-3.77109693292199	40	22	-4.91	-3.18	large
+length	C. elegans L1	C. inopinata L3	-5.85260708392365	40	40	-7.1	-5.15	large
+length	C. elegans L1	C. inopinata L4	-12.9781272888538	40	33	-17.03	-10.71	large
+length	C. elegans L1	C. inopinata Young adult	-12.2369453276524	40	16	-18.16	-9.98	large
+length	C. elegans L1	C. inopinata Gravid adult	-15.6719198924854	40	32	-20.37	-13.2	large
+length	C. elegans L2	C. elegans L3	-3.06743634266928	40	36	-4.26	-2.41	large
+length	C. elegans L2	C. elegans L4	-8.39512276476542	40	41	-10.55	-7.22	large
+length	C. elegans L2	C. elegans Young adult	-7.99255733875469	40	30	-11	-6.55	large
+length	C. elegans L2	C. elegans Gravid adult	-9.632436950413	40	40	-11.38	-8.6	large
+length	C. elegans L2	C. inopinata L1	2.07165000611247	40	20	1.74	2.64	large
+length	C. elegans L2	C. inopinata L2	-0.976600762235528	40	22	-1.67	-0.42	large
+length	C. elegans L2	C. inopinata L3	-3.88347433840177	40	40	-4.71	-3.37	large
+length	C. elegans L2	C. inopinata L4	-9.694666720855	40	33	-12.35	-8.1	large
+length	C. elegans L2	C. inopinata Young adult	-10.449455068909	40	16	-15.02	-8.45	large
+length	C. elegans L2	C. inopinata Gravid adult	-13.6810872146772	40	32	-17.18	-11.53	large
+length	C. elegans L3	C. elegans L4	-4.88219462783022	36	41	-6.3	-4.02	large
+length	C. elegans L3	C. elegans Young adult	-5.32231829729028	36	30	-7.17	-4.36	large
+length	C. elegans L3	C. elegans Gravid adult	-7.16289504383417	36	40	-8.48	-6.39	large
+length	C. elegans L3	C. inopinata L1	5.48163391806549	36	20	4.25	8	large
+length	C. elegans L3	C. inopinata L2	1.38181713490718	36	22	0.84	2.14	large
+length	C. elegans L3	C. inopinata L3	-2.12004275857764	36	40	-2.78	-1.63	large
+length	C. elegans L3	C. inopinata L4	-7.04293871755527	36	33	-9.25	-5.84	large
+length	C. elegans L3	C. inopinata Young adult	-8.85108958841039	36	16	-12.62	-7.12	large
+length	C. elegans L3	C. inopinata Gravid adult	-11.9329020161274	36	32	-14.9	-10.04	large
+length	C. elegans L4	C. elegans Young adult	-1.42544656508476	41	30	-2.1	-0.96	large
+length	C. elegans L4	C. elegans Gravid adult	-3.61432190002524	41	40	-4.31	-3.15	large
+length	C. elegans L4	C. inopinata L1	11.9561673073446	41	20	10.06	15.36	large
+length	C. elegans L4	C. inopinata L2	5.37218003736243	41	22	4.54	6.78	large
+length	C. elegans L4	C. inopinata L3	0.7394166587564	41	40	0.29	1.27	moderate
+length	C. elegans L4	C. inopinata L4	-3.2763291261872	41	33	-4.28	-2.56	large
+length	C. elegans L4	C. inopinata Young adult	-6.44741554533706	41	16	-9.06	-5.14	large
+length	C. elegans L4	C. inopinata Gravid adult	-9.42377321810107	41	32	-11.63	-7.9	large
+length	C. elegans Young adult	C. elegans Gravid adult	-2.02900257400714	30	40	-2.61	-1.54	large
+length	C. elegans Young adult	C. inopinata L1	10.1526211886579	30	20	8.08	14.91	large
+length	C. elegans Young adult	C. inopinata L2	5.81464484969371	30	22	4.88	7.44	large
+length	C. elegans Young adult	C. inopinata L3	1.63092445269012	30	40	1.18	2.14	large
+length	C. elegans Young adult	C. inopinata L4	-1.63862081713846	30	33	-2.41	-1.12	large
+length	C. elegans Young adult	C. inopinata Young adult	-5.21873050408306	30	16	-7.22	-4.2	large
+length	C. elegans Young adult	C. inopinata Gravid adult	-7.92618355648398	30	32	-9.73	-6.66	large
+length	C. elegans Gravid adult	C. inopinata L1	11.6043830854817	40	20	10.25	13.83	large
+length	C. elegans Gravid adult	C. inopinata L2	7.4669817477188	40	22	6.64	8.88	large
+length	C. elegans Gravid adult	C. inopinata L3	3.18927878853639	40	40	2.79	3.8	large
+length	C. elegans Gravid adult	C. inopinata L4	0.453201068766705	40	33	0.0019	0.87	small
+length	C. elegans Gravid adult	C. inopinata Young adult	-3.62832019455085	40	16	-5.07	-2.89	large
+length	C. elegans Gravid adult	C. inopinata Gravid adult	-6.17574615870584	40	32	-7.61	-5.27	large
+length	C. inopinata L1	C. inopinata L2	-2.39367386729146	20	22	-3.32	-1.88	large
+length	C. inopinata L1	C. inopinata L3	-4.94644958999359	20	40	-6.07	-4.35	large
+length	C. inopinata L1	C. inopinata L4	-11.9016097733978	20	33	-15.71	-9.77	large
+length	C. inopinata L1	C. inopinata Young adult	-11.5316796573392	20	16	-16.32	-9.23	large
+length	C. inopinata L1	C. inopinata Gravid adult	-14.9658392830428	20	32	-18.93	-12.36	large
+length	C. inopinata L2	C. inopinata L3	-2.87686754463058	22	40	-3.62	-2.38	large
+length	C. inopinata L2	C. inopinata L4	-7.33121417099803	22	33	-9.34	-6.31	large
+length	C. inopinata L2	C. inopinata Young adult	-9.14768586292261	22	16	-12.76	-7.61	large
+length	C. inopinata L2	C. inopinata Gravid adult	-12.0327751809111	22	32	-14.75	-10.5	large
+length	C. inopinata L3	C. inopinata L4	-2.89980886347015	40	33	-3.56	-2.41	large
+length	C. inopinata L3	C. inopinata Young adult	-5.83527177549841	40	16	-7.6	-4.86	large
+length	C. inopinata L3	C. inopinata Gravid adult	-8.19434208162898	40	32	-9.64	-7.18	large
+length	C. inopinata L4	C. inopinata Young adult	-4.03931877693382	33	16	-5.69	-3.19	large
+length	C. inopinata L4	C. inopinata Gravid adult	-6.66603395669753	33	32	-8.05	-5.67	large
+length	C. inopinata Young adult	C. inopinata Gravid adult	-1.98435901689679	16	32	-2.84	-1.42	large

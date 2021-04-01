@@ -1,0 +1,7 @@
+comparison	statistic	adj.p.value
+C. inopinata dauer-C. elegans dauer	115.780916168676	3.75065290559827e-24
+C. inopinata dauer-C. briggsae dauer	111.366974239987	1.67207899996842e-23
+C. inopinata dauer-C. tropicalis dauer	109.615262762395	2.65560111219475e-23
+C. tropicalis dauer-C. elegans dauer	19.7102967133502	7.87144942522973e-05
+C. briggsae dauer-C. elegans dauer	3.52708766461567	0.171436244735188
+C. tropicalis dauer-C. briggsae dauer	10.3506840363138	0.00678513925902408
