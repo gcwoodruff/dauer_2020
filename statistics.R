@@ -1079,4 +1079,4 @@ kruskal.test(fraction_dauer ~ temperature, data = sds_new_dat)
 #data:  fraction_dauer by temperature
 #Kruskal-Wallis chi-squared = 0.014881, df = 1, p-value = 0.9029
 
-#frustratingly, no it does not
+#no
