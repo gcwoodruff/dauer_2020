@@ -473,7 +473,7 @@ summary(m.interaction)$coefficients
 #speciesC. inopinata       -143.16764 25.2727388 -5.664904  2.879424e-08
 #width:speciesC. inopinata    9.34251  0.5754669 16.234660  1.506259e-45
 
-#get coffecients for each species
+#get coefficients for each species
 m.lst <- lstrends(m.interaction, "species", var="width")
 m.lst
 # species      width.trend    SE  df lower.CL upper.CL
