@@ -1,0 +1,46 @@
+.y.	group1	group2	n1	n2	statistic	p	p.adj	p.adj.signif
+width	C. elegans Dauer ESH 2017	C. elegans Dauer GCW 2019	113	51	1297	1.61e-08	2.59e-08	****
+width	C. elegans Dauer ESH 2017	C. elegans Dauer KM 2022	113	50	1059	1.82e-10	3.41e-10	****
+width	C. elegans Dauer ESH 2017	C. elegans L3 GCW Evol. Lett. 2018	113	36	4.5	1.88e-19	1.41e-18	****
+width	C. elegans Dauer ESH 2017	C. elegans L3 KM 2022	113	50	259.5	2.23e-20	2.51e-19	****
+width	C. elegans Dauer ESH 2017	C. inopinata Dauer ESH 2017	113	97	430.5	1.02e-30	2.29e-29	****
+width	C. elegans Dauer ESH 2017	C. inopinata Dauer GCW 2019	113	34	204	2.57e-15	1.16e-14	****
+width	C. elegans Dauer ESH 2017	C. inopinata Dauer KM 2022	113	45	636	1.76e-13	4.98e-13	****
+width	C. elegans Dauer ESH 2017	C. inopinata L3 GCW Evol. Lett. 2018	113	40	22.5	1.31e-20	1.96e-19	****
+width	C. elegans Dauer ESH 2017	C. inopinata L3 KM 2022	113	98	202.5	1.43e-33	6.44e-32	****
+width	C. elegans Dauer GCW 2019	C. elegans Dauer KM 2022	51	50	1070	0.161	0.165	ns
+width	C. elegans Dauer GCW 2019	C. elegans L3 GCW Evol. Lett. 2018	51	36	11	4.51e-15	1.84e-14	****
+width	C. elegans Dauer GCW 2019	C. elegans L3 KM 2022	51	50	294.5	2.36e-11	5.06e-11	****
+width	C. elegans Dauer GCW 2019	C. inopinata Dauer ESH 2017	51	97	499	1.37e-15	7.71e-15	****
+width	C. elegans Dauer GCW 2019	C. inopinata Dauer GCW 2019	51	34	250.5	2.74e-08	4.25e-08	****
+width	C. elegans Dauer GCW 2019	C. inopinata Dauer KM 2022	51	45	675	0.000487	0.000592	***
+width	C. elegans Dauer GCW 2019	C. inopinata L3 GCW Evol. Lett. 2018	51	40	26.5	1.72e-15	8.6e-15	****
+width	C. elegans Dauer GCW 2019	C. inopinata L3 KM 2022	51	98	241.5	1.46e-19	1.31e-18	****
+width	C. elegans Dauer KM 2022	C. elegans L3 GCW Evol. Lett. 2018	50	36	22	1.32e-14	4.57e-14	****
+width	C. elegans Dauer KM 2022	C. elegans L3 KM 2022	50	50	466.5	6e-08	9e-08	****
+width	C. elegans Dauer KM 2022	C. inopinata Dauer ESH 2017	50	97	767	1.04e-11	2.46e-11	****
+width	C. elegans Dauer KM 2022	C. inopinata Dauer GCW 2019	50	34	393.5	2.88e-05	3.7e-05	****
+width	C. elegans Dauer KM 2022	C. inopinata Dauer KM 2022	50	45	876	0.062	0.067	ns
+width	C. elegans Dauer KM 2022	C. inopinata L3 GCW Evol. Lett. 2018	50	40	47.5	9.61e-15	3.6e-14	****
+width	C. elegans Dauer KM 2022	C. inopinata L3 KM 2022	50	98	378.5	4e-17	2.57e-16	****
+width	C. elegans L3 GCW Evol. Lett. 2018	C. elegans L3 KM 2022	36	50	1571.5	3.76e-09	6.51e-09	****
+width	C. elegans L3 GCW Evol. Lett. 2018	C. inopinata Dauer ESH 2017	36	97	2879.5	8.52e-09	1.42e-08	****
+width	C. elegans L3 GCW Evol. Lett. 2018	C. inopinata Dauer GCW 2019	36	34	1208.5	2.04e-12	5.1e-12	****
+width	C. elegans L3 GCW Evol. Lett. 2018	C. inopinata Dauer KM 2022	36	45	1582.5	1.77e-13	4.98e-13	****
+width	C. elegans L3 GCW Evol. Lett. 2018	C. inopinata L3 GCW Evol. Lett. 2018	36	40	488	0.015	0.017	*
+width	C. elegans L3 GCW Evol. Lett. 2018	C. inopinata L3 KM 2022	36	98	2286.5	0.008	0.01	**
+width	C. elegans L3 KM 2022	C. inopinata Dauer ESH 2017	50	97	2162.5	0.282	0.282	ns
+width	C. elegans L3 KM 2022	C. inopinata Dauer GCW 2019	50	34	1050.5	0.067	0.07	ns
+width	C. elegans L3 KM 2022	C. inopinata Dauer KM 2022	50	45	1662	5.88e-05	7.35e-05	****
+width	C. elegans L3 KM 2022	C. inopinata L3 GCW Evol. Lett. 2018	50	40	207	1.13e-10	2.21e-10	****
+width	C. elegans L3 KM 2022	C. inopinata L3 KM 2022	50	98	1293	2.56e-06	3.49e-06	****
+width	C. inopinata Dauer ESH 2017	C. inopinata Dauer GCW 2019	97	34	2242.5	0.002	0.002	**
+width	C. inopinata Dauer ESH 2017	C. inopinata Dauer KM 2022	97	45	3409	6.86e-08	9.96e-08	****
+width	C. inopinata Dauer ESH 2017	C. inopinata L3 GCW Evol. Lett. 2018	97	40	564	6.67e-11	1.36e-10	****
+width	C. inopinata Dauer ESH 2017	C. inopinata L3 KM 2022	97	98	3000	8.12e-06	1.07e-05	****
+width	C. inopinata Dauer GCW 2019	C. inopinata Dauer KM 2022	34	45	1037.5	0.007	0.008	**
+width	C. inopinata Dauer GCW 2019	C. inopinata L3 GCW Evol. Lett. 2018	34	40	60.5	1.71e-11	3.85e-11	****
+width	C. inopinata Dauer GCW 2019	C. inopinata L3 KM 2022	34	98	486.5	7.56e-10	1.36e-09	****
+width	C. inopinata Dauer KM 2022	C. inopinata L3 GCW Evol. Lett. 2018	45	40	68.5	2.28e-13	6.04e-13	****
+width	C. inopinata Dauer KM 2022	C. inopinata L3 KM 2022	45	98	482	6.14e-14	1.97e-13	****
+width	C. inopinata L3 GCW Evol. Lett. 2018	C. inopinata L3 KM 2022	40	98	2968	2.11e-06	2.97e-06	****

@@ -1,0 +1,11 @@
+species.stage	N	Min.	X1st.Qu.	Median	Mean	X3rd.Qu.	Max.	sd
+C. elegans Dauer ESH 2017	113	333	399	444	456	496	662	65
+C. elegans Dauer GCW 2019	51	476	536	553	558	575	665	36
+C. elegans Dauer KM 2022	50	369	416	442	446	476	558	44
+C. elegans L3 GCW Evol. Lett. 2018	36	403	502	520	518	538	642	47
+C. elegans L3 KM 2022	50	347	436	460	465	484	599	56
+C. inopinata Dauer ESH 2017	97	326	399	432	429	462	524	45
+C. inopinata Dauer GCW 2019	34	323	451	480	470	500	533	46
+C. inopinata Dauer KM 2022	45	286	349	367	373	393	452	40
+C. inopinata L3 GCW Evol. Lett. 2018	40	512	582	710	689	782	860	104
+C. inopinata L3 KM 2022	98	359	476	522	535	569	747	82

@@ -1,7 +1,7 @@
 #this is the revised code for making figures associated with manuscript, 
 #"Opposing directions of stage-specific body length change in a close relative of C. elegans"
-#by Hammerschmith, Woodruff, Johnson and Phillips
-#2021
+#by Hammerschmith, Woodruff, Moser, Johnson and Phillips
+#2022
 
 #email Gavin at gcwoodruff@ou.edu if you have any questions
 
@@ -20,7 +20,8 @@ library(ggmap)
 
 #get data in there
 
-dat_o <- read.table("original_length_width_data.tsv", sep="\t", header=T)
+dat_o <- read.table("length_width_data_2022_revision.tsv", sep="\t", header=T)
+
 
 #get factor levels right
 dat_o$species <- factor(dat_o$species, levels = c("C. elegans","C. inopinata", "C. briggsae", "C. tropicalis"))
@@ -57,6 +58,7 @@ ce_ci$species <- droplevels(ce_ci$species)
 
 ggplot(ce_ci, aes(x=width, y=length, colour=stage)) + geom_point(size=0.75,alpha=0.9) + facet_rep_wrap(~species,nrow=1) + scale_colour_manual(name="Developmental\nstage", values=c("red3", "#c6dbef", "#9ecae1", "#6baed6", "#4292c6", "#2171b5","#084594")) + theme_cowplot() + theme(strip.text.x = element_text(size=12, face = "italic"),strip.background = element_blank()) + xlab("Width (microns)") + ylab("Length (microns)") + xlim(0,100) + scale_y_continuous(limits=c(0,2000),breaks=c(0,250,500,750,1000,1250,1500,1750,2000)) + guides(colour = guide_legend(override.aes = list(size=1,alpha=1))) 
 
+#ggsave("figure_2_scatterplot.pdf",height=6,width=7, units='in',useDingbats=FALSE)
 
 #figure 2 -- sina
 
@@ -67,10 +69,12 @@ dauer_dat$species <- factor(dauer_dat$species, levels = c("C. briggsae","C. trop
 	#length sina
 ggplot(dauer_dat, aes(x=species, y=length)) + geom_sina(size=0.5,alpha=0.5) + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", width = 0.25, colour="red",position = position_dodge(width = 0.9)) + theme_cowplot() + theme(axis.text.x=element_text(size=12, colour="black",face="italic", angle = 45, hjust = 1)) + xlab("Species") + ylab("Length (microns)") + scale_y_continuous(limits=c(0,700),breaks=c(0,100,200,300,400,500,600,700))
 
+#ggsave("figure_2_length_sina.pdf",height=4.5,width=2.5, units='in')
+
 	#width sina
 ggplot(dauer_dat, aes(x=species, y=width)) + geom_sina(size=0.5,alpha=0.5) + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", width = 0.25, colour="red",position = position_dodge(width = 0.9)) + theme_cowplot() + theme(axis.text.x=element_text(size=12, colour="black",face="italic", angle = 45, hjust = 1)) + xlab("Species") + ylab("Width (microns)") + scale_y_continuous(limits=c(0,50),breaks=c(0,10,20,30,40,50))
 
-
+#ggsave("figure_2_width_sina.pdf",height=4.5,width=2.5, units='in')
 
 #figure 3 -- inopinata variation in dauer formation frequency
 
@@ -109,24 +113,49 @@ ino_sds_dat$Strain <- droplevels(ino_sds_dat$Strain)
 
 ino_sds_dat$perc_alive <- ino_sds_dat$fraction_dauer*100
 
-ggplot(ino_sds_dat, aes(x= reorder(Strain, -fraction_dauer, FUN=mean),y=fraction_dauer)) + geom_dotplot(binaxis="y", binwidth=.00030, stackdir="center", aes(fill=Island, colour=Island),alpha=1) + scale_fill_brewer(name="Island", palette="Set1") + scale_colour_brewer(name="Island", palette="Set1") + stat_summary(fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", width = 0.5,size=0.25) + theme_cowplot() + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + xlab("Strain") + ylab("Fraction dauer") + guides(colour = guide_legend(override.aes = list(size=1,alpha=1))) + scale_y_continuous(limits=c(0,0.02),breaks=c(0,0.005,0.01,0.015,0.02))
+ggplot(ino_sds_dat, aes(x= reorder(Strain, -fraction_dauer, FUN=mean),y=fraction_dauer)) + geom_dotplot(binaxis="y", binwidth=.00030, stackdir="center", aes(fill=Island, colour=Island),alpha=1) + scale_fill_brewer(name="Island", palette="Set1") + scale_colour_brewer(name="Island", palette="Set1") + stat_summary(fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", width = 0.5,size=0.25) + theme_cowplot() + theme(axis.text.x = element_text(angle = 45, hjust = 1)) + xlab("Strain") + ylab("Fraction dauer-like") + guides(colour = guide_legend(override.aes = list(size=1,alpha=1))) + scale_y_continuous(limits=c(0,0.02),breaks=c(0,0.005,0.01,0.015,0.02))
+
+#ggsave("figure_3.png", units="in", height=5,width=7)
+
+
+#supplemental figure 1, pharynx measurements
+
+
+pharynx_dat <- read.table("pharynx_2022.tsv", sep="\t", header=T)
+
+pharynx_dat$fra_phar_worm <- pharynx_dat$Isthmus_Width_Microns/pharynx_dat$Worm_Width_at_Isthmus_Microns
+
+levels(pharynx_dat$stage)[levels(pharynx_dat$stage)=='Dauer'] <- 'Dauer*'
 
 
 
 
-#supplemental figure 1
+a <- ggplot(pharynx_dat, aes(x = stage, y = Isthmus_Width_Microns)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Stage") + ylab("Isthmus of pharynx width\n(microns)") + labs(colour="Species") + scale_y_continuous(limits=c(0,9),breaks=c(0:9)) + theme(legend.text = element_text(face = "italic")) + guides(colour = guide_legend(override.aes = list(size=1.5,alpha=1)))
+
+
+b <- ggplot(pharynx_dat, aes(x = stage, y = fra_phar_worm)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Stage") + ylab("Pharynx as fraction\n of total width") + labs(colour="Species") + scale_y_continuous(limits=c(0,0.3),breaks=c(0,0.1,0.2,0.3)) + theme(legend.text = element_text(face = "italic")) + guides(colour = guide_legend(override.aes = list(size=1.5,alpha=1)))
+
+a/b
+
+
+#ggsave("supplemental_figure_1.pdf",height=7,width=7, units='in',useDingbats=FALSE)
+
+
+
+
+#supplemental figure 2
 #length sina
-ggplot(dat_o, aes(x = stage, y = length)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Stage") + ylab("Length (microns)") + labs(colour="Species") + theme(legend.text = element_text(face = "italic")) + scale_y_continuous(limits=c(0,2000),breaks=c(0,250,500,750,1000,1250,1500,1750,2000)) + scale_x_discrete(labels=c(c("Dauer","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult"))) + guides(colour = guide_legend(override.aes = list(size=2,alpha=1))) 
+ggplot(dat_o, aes(x = stage, y = length)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Stage") + ylab("Length (microns)") + labs(colour="Species") + theme(legend.text = element_text(face = "italic")) + scale_y_continuous(limits=c(0,2000),breaks=c(0,250,500,750,1000,1250,1500,1750,2000)) + scale_x_discrete(labels=c(c("Dauer*","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult"))) + guides(colour = guide_legend(override.aes = list(size=2,alpha=1))) 
 
 
+#ggsave("supplemental_figure_2.pdf",height=7,width=7, units='in',useDingbats=FALSE)
 
-#supplemental figure 2 effect sizes (see statistics.R for how to generate these df's)
+#supplemental figure 3 effect sizes (see statistics.R for how to generate these df's)
 
 length_effsize_df <- read.table("sheet_5_length_pairwise_effect_sizes.tsv", sep="\t", header=T)
 width_effsize_df <- read.table("sheet_6_width_pairwise_effect_sizes.tsv", sep="\t", header=T)
 
 #organize df to plot
-length_effsize_df[length_effsize_df$group1 == "C. inopinata L2" & length_effsize_df$group2 == "C. elegans L2",]
 
 dauer_length_effsize <- data.frame(stage= "Dauer",effsize= length_effsize_df[length_effsize_df$group1 == "C. inopinata Dauer" & length_effsize_df$group2 == "C. elegans Dauer",]$effsize, upper=length_effsize_df[length_effsize_df$group1 == "C. inopinata Dauer" & length_effsize_df$group2 == "C. elegans Dauer",]$conf.high,lower=length_effsize_df[length_effsize_df$group1 == "C. inopinata Dauer" & length_effsize_df$group2 == "C. elegans Dauer",]$conf.low,dimension="Length")
 	#because direction in df is different in pairwise comparisons we need to multiply by negative 1 to make things comparable among groups!!! Also flip upper and lower CI!!
@@ -159,13 +188,41 @@ effsize_plot_df <- rbind.data.frame(len_effsize_plot_df,wid_effsize_plot_df)
 #make a y axis title
 y_title <- expression(paste("Cohen's ", italic("d"), " effect size"))
 
-#plot!
-ggplot(effsize_plot_df, aes(x = stage, y = effsize)) + geom_col(fill = "#56B4E9") + geom_errorbar(aes(ymin = lower, ymax = upper), width = .1) + facet_rep_wrap(~dimension,ncol=1) + theme_cowplot() + xlab("Stage")+ theme(strip.background=element_blank()) + geom_hline(yintercept=0,linetype="dashed") + scale_x_discrete(labels=c(c("Dauer","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult"))) + labs(y=y_title) + scale_y_continuous(breaks=c(-1:8),limits=c(-1,8))
+#plot! this is supplemental figure 3
+
+ggplot(effsize_plot_df, aes(x = stage, y = effsize)) + geom_col(fill = "#56B4E9") + geom_errorbar(aes(ymin = lower, ymax = upper), width = .1) + facet_rep_wrap(~dimension,ncol=1) + theme_cowplot() + xlab("Stage")+ theme(strip.background=element_blank()) + geom_hline(yintercept=0,linetype="dashed") + scale_x_discrete(labels=c(c("Dauer*","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult"))) + labs(y=y_title) + scale_y_continuous(breaks=c(-2:8),limits=c(-2,8))
+
+#ggsave("supplemental_figure_3.pdf",height=7,width=7, units='in',useDingbats=FALSE)
+
+
+#supplemental figure 4, Trends of dauer shape divergence are reproducible across multiple experiments. 
+
+dat_o$length.width.ratio <- dat_o$length/dat_o$width
+
+dat_o_melt <- melt(dat_o, measure.vars=c("length","width","length.width.ratio"))
+
+dat_o_melt_L3D <- dat_o_melt[dat_o_melt$stage == "L3" | dat_o_melt$stage == "Dauer",]
+
+dat_o_melt_L3D_cice <- dat_o_melt_L3D[dat_o_melt_L3D$species == "C. inopinata" | dat_o_melt_L3D$species == "C. elegans",]
+
+dat_o_melt_L3D_cice$stage <-  droplevels(dat_o_melt_L3D_cice$stage)
+
+
+levels(dat_o_melt_L3D_cice$variable)[levels(dat_o_melt_L3D_cice$variable)=='width'] <- 'Width'
+levels(dat_o_melt_L3D_cice$variable)[levels(dat_o_melt_L3D_cice$variable)=='length'] <- 'Length'
+levels(dat_o_melt_L3D_cice$variable)[levels(dat_o_melt_L3D_cice$variable)=='length.width.ratio'] <- 'Length:width ratio'
+levels(dat_o_melt_L3D_cice$observer_year)[levels(dat_o_melt_L3D_cice$observer_year)=='GCW Evol. Lett. 2018'] <- 'GCW Evol.\n Lett. 2018'
+levels(dat_o_melt_L3D_cice$observer_year)[levels(dat_o_melt_L3D_cice$observer_year)=='KM 2022'] <- 'KAM 2022'
 
 
 
+ggplot(dat_o_melt_L3D_cice, aes(x = observer_year, y = value)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + facet_rep_grid(variable~stage, scales="free")  + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Experiment") + ylab("Value (microns or dimensionless)") + labs(colour="Species") + theme(legend.text = element_text(face = "italic"),strip.background = element_blank(),axis.text.x=element_text(size=12, colour="black", angle = 45, hjust = 1)) + guides(colour = guide_legend(override.aes = list(size=1.5,alpha=1)))
 
-##supplemental figure 3, new data, tails
+#ggsave("supplemental_figure_4.pdf",height=7,width=7, units='in', useDingbats=FALSE)
+
+
+
+##supplemental figure 5, tails
 
 #get data in there
 dat_n <- read.table("new_data_for_revisions_dauer_elegans_inopinata_tails_sheath.tsv", sep="\t", header=T)
@@ -176,28 +233,34 @@ dat_n$tail_length_micron <- round(dat_n$tail_length_micron)
 dat_n$length_no_tail <- dat_n$length_include_tail_micron - dat_n$tail_length_micron
 
 
-a <- ggplot(dat_n, aes(x = species, y = length_include_tail_micron)) + geom_sina(colour="#56B4E9",size=1, alpha=1,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black") + theme_cowplot() + xlab("Species") + ylab("Total dauer length (microns)") + xlab("Species") + theme(axis.text.x = element_text(face = "italic"),axis.title.x=element_blank()) + scale_y_continuous(limits=c(0,700),breaks=c(0,100,200,300,400,500,600,700)) 
+a <- ggplot(dat_n, aes(x = species, y = length_include_tail_micron)) + geom_sina(colour="#56B4E9",size=1, alpha=1,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black") + theme_cowplot() + xlab("Species") + ylab("Total dauer* length (microns)") + xlab("Species") + theme(axis.text.x = element_text(face = "italic"),axis.title.x=element_blank()) + scale_y_continuous(limits=c(0,700),breaks=c(0,100,200,300,400,500,600,700)) 
 
-b <- ggplot(dat_n, aes(x = species, y = length_no_tail)) + geom_sina(colour="#56B4E9",size=1, alpha=1,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black") + theme_cowplot() + xlab("Species") + ylab("Dauer length\nwith tail excluded (microns)") + xlab("Species") + theme(axis.text.x = element_text(face = "italic")) + scale_y_continuous(limits=c(0,700),breaks=c(0,100,200,300,400,500,600,700)) 
+b <- ggplot(dat_n, aes(x = species, y = length_no_tail)) + geom_sina(colour="#56B4E9",size=1, alpha=1,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black") + theme_cowplot() + xlab("Species") + ylab("Dauer* length\nwith tail excluded (microns)") + xlab("Species") + theme(axis.text.x = element_text(face = "italic")) + scale_y_continuous(limits=c(0,700),breaks=c(0,100,200,300,400,500,600,700)) 
 
-c <- ggplot(dat_n, aes(x = species, y = tail_length_micron)) + geom_sina(colour="#56B4E9",size=1, alpha=1,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black") + theme_cowplot() + xlab("Species") + ylab("Dauer tail length (microns)") + xlab("Species") + theme(axis.text.x = element_text(face = "italic"),axis.title.x=element_blank()) + scale_y_continuous(limits=c(0,60),breaks=c(0,10,20,30,40,50,60)) 
+c <- ggplot(dat_n, aes(x = species, y = tail_length_micron)) + geom_sina(colour="#56B4E9",size=1, alpha=1,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black") + theme_cowplot() + xlab("Species") + ylab("Dauer* tail length (microns)") + xlab("Species") + theme(axis.text.x = element_text(face = "italic"),axis.title.x=element_blank()) + scale_y_continuous(limits=c(0,60),breaks=c(0,10,20,30,40,50,60)) 
 
 d <- ggplot(dat_n, aes(x = species, y = width_exclude_sheath_micron)) + geom_sina(colour="#56B4E9",size=1, alpha=1,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black") + theme_cowplot() + xlab("Species") + ylab("Width (microns)") + xlab("Species") + theme(axis.text.x = element_text(face = "italic"),axis.title.x=element_blank()) + scale_y_continuous(limits=c(0,30),breaks=c(0,5,10,15,20,25,30)) 
 
 
 (a+b)/(c+d)
 
+#ggsave("supplemental_figure_5.pdf",height=7,width=7, units='in',useDingbats=FALSE)
 
 
 
-#supplemental figure 4
+
+#supplemental figure 6
 #width sina
-ggplot(dat_o, aes(x = stage, y = width)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Stage") + ylab("Width (microns)") + labs(colour="Species") + theme(legend.text = element_text(face = "italic")) + scale_y_continuous(limits=c(0,100),breaks=c(0,25,50,75,100)) + scale_x_discrete(labels=c(c("Dauer","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult"))) + guides(colour = guide_legend(override.aes = list(size=2,alpha=1))) 
+ggplot(dat_o, aes(x = stage, y = width)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Stage") + ylab("Width (microns)") + labs(colour="Species") + theme(legend.text = element_text(face = "italic")) + scale_y_continuous(limits=c(0,100),breaks=c(0,25,50,75,100)) + scale_x_discrete(labels=c(c("Dauer*","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult"))) + guides(colour = guide_legend(override.aes = list(size=2,alpha=1))) 
+
+#ggsave("supplemental_figure_6.pdf",height=7,width=7, units='in', useDingbats=FALSE)
 
 
 
 
-#supplemental figure 5, relationship of dauers to non-dauer stages in length-width space
+
+
+#supplemental figure 7, relationship of dauers to non-dauer stages in length-width space
 
 
 #get elegans reproductive stages
@@ -207,7 +270,7 @@ ce_repr_fit <- lm(ce_repr$length~ce_repr$width)
 #get elegans dauers
 ce_dauer <- dat_o[dat_o$species == "C. elegans" & dat_o$stage == "Dauer",]
 #are elegans dauers above fit?
-ce_dauer$is_above_regression <- ifelse(ce_dauer$length > (ce_repr_fit$coefficients[2]*ce_dauer$width) + ce_repr_fit$coefficients[1],'Dauer above','Dauer below')
+ce_dauer$is_above_regression <- ifelse(ce_dauer$length > (ce_repr_fit$coefficients[2]*ce_dauer$width) + ce_repr_fit$coefficients[1],'Dauer* above','Dauer* below')
 
 
 #get inopinata reproductive stages
@@ -217,15 +280,15 @@ ci_repr_fit <- lm(ci_repr$length~ci_repr$width)
 #get inopinata dauers
 ci_dauer <- dat_o[dat_o$species == "C. inopinata" & dat_o$stage == "Dauer",]
 #are inopinata dauers above fit?
-ci_dauer$is_above_regression <- ifelse(ci_dauer$length > (ci_repr_fit$coefficients[2]*ci_dauer$width) + ci_repr_fit$coefficients[1],'Dauer above','Dauer below')
+ci_dauer$is_above_regression <- ifelse(ci_dauer$length > (ci_repr_fit$coefficients[2]*ci_dauer$width) + ci_repr_fit$coefficients[1],'Dauer* above','Dauer* below')
 #get labels right
-ce_repr$is_above_regression <- 'Reproductive cycle stages'
-ci_repr$is_above_regression <- 'Reproductive cycle stages'
+ce_repr$is_above_regression <- 'Reproductive cycle\nstages'
+ci_repr$is_above_regression <- 'Reproductive cycle\nstages'
 
 #cat data for plots
 fdat <- rbind(ce_repr,ce_dauer,ci_repr,ci_dauer)
 #scatterplot colored by stage and relationship to fit
-a <- ggplot(fdat, aes(x=width, y=length, colour=is_above_regression)) + geom_point(alpha=1,size=0.75) + geom_smooth(data = subset(dat_o, stage != "Dauer"),se=FALSE,method=lm,linetype="dotted",colour="black") + facet_rep_wrap(~species,nrow=1)  + theme_cowplot() + scale_colour_manual(values=c("red1","rosybrown","steelblue3")) + theme(strip.text.x = element_text(face = "italic",size=14),axis.title=element_text(size=16),axis.text=element_text(size=14),legend.title=element_text(size=16), legend.text=element_text(size=14), strip.background = element_blank()) + xlab("Width (microns)") + ylab("Length (microns)") + xlim(0,100) + scale_y_continuous(limits=c(0,2000),breaks=c(0,250,500,750,1000,1250,1500,1750,2000)) + labs(colour="Dauer above fit?") + guides(colour = guide_legend(override.aes = list(size=2)))
+a <- ggplot(fdat, aes(x=width, y=length, colour=is_above_regression)) + geom_point(alpha=1,size=0.75) + geom_smooth(data = subset(dat_o, stage != "Dauer"),se=FALSE,method=lm,linetype="dotted",colour="black") + facet_rep_wrap(~species,nrow=1)  + theme_cowplot() + scale_colour_manual(values=c("red1","rosybrown","steelblue3")) + theme(strip.text.x = element_text(face = "italic",size=14),axis.title=element_text(size=16),axis.text=element_text(size=14),legend.title=element_text(size=16), legend.text=element_text(size=14), strip.background = element_blank()) + xlab("Width (microns)") + ylab("Length (microns)") + scale_x_continuous(limits=c(0,125),breaks=c(0,25,50,75,100,125)) + scale_y_continuous(limits=c(0,2100),breaks=c(0,250,500,750,1000,1250,1500,1750,2000)) + labs(colour="Dauer* above fit?") + guides(colour = guide_legend(override.aes = list(size=2)))
 
 #get bar plot data for above/below fit classifcation of dauers
 ci_is_above_count <- count(ci_dauer,is_above_regression)
@@ -237,20 +300,17 @@ ce_is_above_count$species <- "C. elegans"
 dat_is_above <- rbind(ce_is_above_count,ci_is_above_count)
 
 #bar plot
-b <- ggplot(dat_is_above, aes(x = species, y = n, fill = is_above_regression)) + geom_col() + scale_fill_manual(values=c("red1","rosybrown")) + theme_cowplot() + theme(strip.text.x = element_text(face = "italic",size=14),axis.title=element_text(size=16),axis.text=element_text(size=14),legend.title=element_text(size=16), legend.text=element_text(size=14), strip.background = element_blank()) + ylim(0,120) + xlab("Species") + ylab("Number of animals") + labs(fill="Dauer above fit?")
+b <- ggplot(dat_is_above, aes(x = species, y = n, fill = is_above_regression)) + geom_col() + scale_fill_manual(values=c("red1","rosybrown")) + theme_cowplot() + theme(strip.text.x = element_text(face = "italic",size=14),axis.title=element_text(size=16),axis.text.y=element_text(size=14),axis.text.x=element_text(face = "italic",size=14),legend.title=element_text(size=16), legend.text=element_text(size=14), strip.background = element_blank()) + scale_y_continuous(limits=c(0,250),breaks=c(0,50,100,150,200,250)) + xlab("Species") + ylab("Number of animals") + labs(fill="Dauer* above fit?")
 #combine plots
 (a/b) +  plot_layout(heights = c(3, 1))
-#stats and fit equation added in adobe illustrator
+
+#ggsave("supplemental_figure_7.pdf",height=7,width=7, units='in', useDingbats=FALSE)
+
+#supplemental figure 8-10 is in statistics.R
 
 
-#supplemental figure 6 and supplemental figure 7 code is in statistics.R
 
-#supplemental figure 8 code is in kmeans_subsample.R
-
-#supplemental figure 9 is in statistics.R
-
-
-#supplemental figure 10 
+#supplemental figure 11
 
 
 #data
@@ -274,17 +334,16 @@ sds_new_dat$SDS.fraction_alive <- sds_new_dat$SDS.Alive/sds_new_dat$SDS.Total
 sds_new_dat$fraction_dauer <- sds_new_dat$Control.fraction_alive * sds_new_dat$SDS.fraction_alive 
 
 
-ggplot(sds_new_dat, aes(x=temperature, y=fraction_dauer)) + geom_sina(size=0.5,alpha=0.5) + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", width = 0.25, colour="red",position = position_dodge(width = 0.9)) + theme_cowplot() + xlab("Species") + ylab("Fraction dauer") 
-
 sds_new_dat$temperature <- as.factor(sds_new_dat$temperature)
 
-geom_point(aes(colour=strain))
-
-ggplot(sds_new_dat, aes(x = temperature, y = fraction_dauer)) + geom_jitter(aes(colour=strain,width = 0.9),size=1, alpha=1,scale="width") + stat_summary(fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("skyblue","tan1")) + theme_cowplot() + xlab("Temperature (°C)") + ylab("Fraction dauer") + labs(colour="Strain") + scale_y_continuous(limits=c(-0.00002,0.007)) + guides(colour = guide_legend(override.aes = list(size=2,alpha=1))) 
 
 
+ggplot(sds_new_dat, aes(x = temperature, y = fraction_dauer)) + geom_jitter(aes(colour=strain,width = 0.9),size=1, alpha=1,scale="width") + stat_summary(fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("skyblue","tan1")) + theme_cowplot() + xlab("Temperature (°C)") + ylab("Fraction dauer-like") + labs(colour="Strain") + scale_y_continuous(limits=c(-0.0002,0.007)) + guides(colour = guide_legend(override.aes = list(size=2,alpha=1))) 
 
-#Supplemental figure 11 was made with an academic subscription to google maps in 2019.
+#ggsave("supplemental_figure_11.pdf",height=7,width=7, units='in',useDingbats=FALSE)
+
+
+#Supplemental figure 12 was made with an academic subscription to google maps in 2019.
 
 
 # register_google(key = "")
@@ -314,17 +373,53 @@ ggmap(sq_map) + geom_point(data = loc_dat, mapping = aes(x = Longitude, y = Lati
 
 
 
-#supplemental figure 12
+#supplemental figure 13
 
 
-ggplot(sds_dat, aes(x=reorder(Species, -fraction_dauer, FUN=mean), y=fraction_dauer)) + geom_sina(size=0.5,alpha=0.75) + stat_summary(aes(group=Species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", width = 0.25,size=0.25, colour="red",position = position_dodge(width = 0.9)) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black"), axis.text.y=element_text(size=12, colour="black"), axis.text.x=element_text(size=12, colour="black",face="italic", angle = 45, hjust = 1),axis.ticks = element_line(colour = "black"), axis.title=element_text(size=14),legend.title = element_text(colour="black", size=13), legend.text = element_text(colour="black", size = 12),legend.key=element_blank(),strip.text.x = element_text(size=12),strip.text.y = element_text(size=12), strip.background = element_blank()) + xlab("Species") + ylab("Fraction dauer") 
+ggplot(sds_dat, aes(x=reorder(Species, -fraction_dauer, FUN=mean), y=fraction_dauer)) + geom_sina(size=0.5,alpha=0.75) + stat_summary(aes(group=Species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", width = 0.25,size=0.25, colour="red",position = position_dodge(width = 0.9)) + theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(), panel.background = element_blank(), axis.line = element_line(colour = "black"), axis.text.y=element_text(size=12, colour="black"), axis.text.x=element_text(size=12, colour="black",face="italic", angle = 45, hjust = 1),axis.ticks = element_line(colour = "black"), axis.title=element_text(size=14),legend.title = element_text(colour="black", size=13), legend.text = element_text(colour="black", size = 12),legend.key=element_blank(),strip.text.x = element_text(size=12),strip.text.y = element_text(size=12), strip.background = element_blank()) + xlab("Species") + ylab("Fraction dauer*") 
 
+#ggsave("supplemental_figure_13.pdf", units="in", height=5,width=7,useDingbats=FALSE)
 
-
-#supplemental figure 13, length-width ratio
+#supplemental figure 15, length-width ratio
 
 dat_o$length.width.ratio <- dat_o$length/dat_o$width
 
 
-ggplot(dat_o, aes(x = stage, y = length.width.ratio)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Stage") + ylab("Length:width ratio") + labs(colour="Species") + theme(legend.text = element_text(face = "italic")) + scale_y_continuous(limits=c(0,50),breaks=c(0,10,20,30,40,50)) + scale_x_discrete(labels=c(c("Dauer","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult"))) + guides(colour = guide_legend(override.aes = list(size=1.5,alpha=1)))
+ggplot(dat_o, aes(x = stage, y = length.width.ratio)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Stage") + ylab("Length:width ratio") + labs(colour="Species") + theme(legend.text = element_text(face = "italic")) + scale_y_continuous(limits=c(0,50),breaks=c(0,10,20,30,40,50)) + scale_x_discrete(labels=c(c("Dauer*","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult"))) + guides(colour = guide_legend(override.aes = list(size=1.5,alpha=1)))
 
+#ggsave("supplemental_figure_15.pdf",height=7,width=7, units='in',useDingbats=FALSE)
+
+
+
+
+#supplemental figure, reproducibility of length, width, length-width ratio
+
+
+
+dat_o_melt <- melt(dat_o, measure.vars=c("length","width","length.width.ratio"))
+
+dat_o_melt_L3D <- dat_o_melt[dat_o_melt$stage == "L3" | dat_o_melt$stage == "Dauer",]
+
+dat_o_melt_L3D_cice <- dat_o_melt_L3D[dat_o_melt_L3D$species == "C. inopinata" | dat_o_melt_L3D$species == "C. elegans",]
+
+dat_o_melt_L3D_cice$stage <-  droplevels(dat_o_melt_L3D_cice$stage)
+
+
+levels(dat_o_melt_L3D_cice$variable)[levels(dat_o_melt_L3D_cice$variable)=='width'] <- 'Width'
+levels(dat_o_melt_L3D_cice$variable)[levels(dat_o_melt_L3D_cice$variable)=='length'] <- 'Length'
+levels(dat_o_melt_L3D_cice$variable)[levels(dat_o_melt_L3D_cice$variable)=='length.width.ratio'] <- 'Length:width ratio'
+levels(dat_o_melt_L3D_cice$observer_year)[levels(dat_o_melt_L3D_cice$observer_year)=='GCW Evol. Lett. 2018'] <- 'GCW Evol.\n Lett. 2018'
+levels(dat_o_melt_L3D_cice$observer_year)[levels(dat_o_melt_L3D_cice$observer_year)=='KM 2022'] <- 'KAM 2022'
+
+ggplot(dat_o_melt_L3D_cice, aes(x = observer_year, y = value)) + geom_sina(aes(colour=species),size=0.75, alpha=0.75,scale="width") + facet_rep_grid(variable~stage, scales="free")  + stat_summary(aes(group=species),fun.y = mean, fun.ymin = mean, fun.ymax = mean, geom = "crossbar", colour="black",position = position_dodge(width = 0.9)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + xlab("Experiment") + ylab("Value (microns or dimensionless)") + labs(colour="Species") + theme(legend.text = element_text(face = "italic"),strip.background = element_blank(),axis.text.x=element_text(size=12, colour="black", angle = 45, hjust = 1)) + guides(colour = guide_legend(override.aes = list(size=1.5,alpha=1)))
+
+#ggsave("supplemental_figure_multiple_experiments.pdf",height=7,width=7, units='in')
+
++ scale_x_discrete(labels=c(c("Dauer","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult"))) 
+
+
+
+
+
+
++ scale_x_discrete(labels=c(c("Dauer","L1", "L2", "L3", "L4", "Young\nadult", "Gravid\nadult")))

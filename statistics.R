@@ -22,7 +22,7 @@ library(MASS)
 
 #get data in there
 
-dat_o <- read.table("original_length_width_data.tsv", sep="\t", header=T)
+dat_o <- read.table("length_width_data_2022_revision.tsv", sep="\t", header=T)
 
 #get factor levels right
 dat_o$species <- factor(dat_o$species, levels = c("C. elegans","C. inopinata", "C. briggsae", "C. tropicalis"))
@@ -33,6 +33,25 @@ dat_o$species.stage <- factor(dat_o$species.stage, levels = c("C. inopinata Daue
 #sample sizes for all species.stage groups
 
 N_df <- count(dat_o,species.stage)
+N_df
+
+#               species.stage   n
+#1         C. inopinata Dauer 176
+#2           C. elegans Dauer 214
+#3          C. briggsae Dauer  85
+#4        C. tropicalis Dauer  93
+#5              C. elegans L1  40
+#6              C. elegans L2  40
+#7              C. elegans L3  86
+#8              C. elegans L4  41
+#9     C. elegans Young adult  30
+#10   C. elegans Gravid adult  40
+#11           C. inopinata L1  20
+#12           C. inopinata L2  22
+#13           C. inopinata L3 138
+#14           C. inopinata L4  33
+#15  C. inopinata Young adult  16
+#16 C. inopinata Gravid adult  32
 
 #summary statistics per group: length
 
@@ -46,20 +65,20 @@ write.table(stat_df,"sheet_1_length_summary_statistics.tsv",sep="\t", quote=FALS
 
 stat_df
 
-               #species.stage   N Min. X1st.Qu. Median Mean X3rd.Qu. Max.  sd
-#1         C. inopinata Dauer  97  326      399    432  429      462  524  45
-#2           C. elegans Dauer 113  333      399    444  456      496  662  65
+#               species.stage   N Min. X1st.Qu. Median Mean X3rd.Qu. Max.  sd
+#1         C. inopinata Dauer 176  286      380    424  423      466  533  55
+#2           C. elegans Dauer 214  333      419    474  478      534  665  71
 #3          C. briggsae Dauer  85  319      423    452  451      480  574  45
 #4        C. tropicalis Dauer  93  340      464    496  499      534  604  48
 #5              C. elegans L1  40  201      229    248  248      264  314  25
 #6              C. elegans L2  40  322      358    377  384      401  484  39
-#7              C. elegans L3  36  403      502    520  518      538  642  47
+#7              C. elegans L3  86  347      452    486  487      526  642  58
 #8              C. elegans L4  41  632      714    749  748      774  870  47
 #9     C. elegans Young adult  30  686      812    826  832      874 1022  69
 #10   C. elegans Gravid adult  40  842      921    962  982     1052 1143  78
 #11           C. inopinata L1  20  266      311    323  320      336  345  19
 #12           C. inopinata L2  22  328      378    446  438      479  552  67
-#13           C. inopinata L3  40  512      582    710  689      782  860 104
+#13           C. inopinata L3 138  359      499    549  579      663  860 113
 #14           C. inopinata L4  33  759      890    960  947      994 1064  72
 #15  C. inopinata Young adult  16 1127     1276   1372 1363     1456 1582 127
 #16 C. inopinata Gravid adult  32 1319     1510   1596 1608     1702 1821 120
@@ -76,19 +95,19 @@ write.table(stat_df,"sheet_2_width_summary_statistics.tsv",sep="\t", quote=FALSE
 stat_df
 
 #               species.stage   N Min. X1st.Qu. Median Mean X3rd.Qu. Max. sd
-#1         C. inopinata Dauer  97   19       24     26   27       29   44  4
-#2           C. elegans Dauer 113    9       16     17   18       21   28  4
+#1         C. inopinata Dauer 176   18       23     25   26       27   44  4
+#2           C. elegans Dauer 214    9       17     20   20       22   31  4
 #3          C. briggsae Dauer  85   12       15     17   17       19   26  3
 #4        C. tropicalis Dauer  93   12       17     18   19       21   31  3
 #5              C. elegans L1  40   11       14     16   16       16   21  2
 #6              C. elegans L2  40   18       22     24   23       24   28  2
-#7              C. elegans L3  36   28       29     31   31       32   39  3
+#7              C. elegans L3  86   20       25     28   28       31   39  4
 #8              C. elegans L4  41   37       41     44   44       48   56  5
 #9     C. elegans Young adult  30   37       46     50   51       54   65  6
 #10   C. elegans Gravid adult  40   48       59     66   65       71   82  8
 #11           C. inopinata L1  20   14       16     17   17       18   20  2
 #12           C. inopinata L2  22   17       19     22   23       25   35  5
-#13           C. inopinata L3  40   22       31     32   34       38   44  5
+#13           C. inopinata L3 138   19       27     30   31       33   44  5
 #14           C. inopinata L4  33   33       42     46   45       48   52  5
 #15  C. inopinata Young adult  16   39       50     54   55       60   67  8
 #16 C. inopinata Gravid adult  32   59       65     70   69       73   88  6
@@ -153,10 +172,10 @@ kwt_dato
 #	Kruskal-Wallis rank sum test
 #
 #data:  length by species.stage
-#Kruskal-Wallis chi-squared = 643.57, df = 15, p-value < 2.2e-16
+#Kruskal-Wallis chi-squared = 766.74, df = 15, p-value < 2.2e-16
 
 kwt_dato$p.value
-#[1] 1.933859e-127
+#[1] 1.08075e-153
 
 #width
 kwt_dato <- kruskal.test(width ~ species.stage, data = dat_o)
@@ -165,10 +184,10 @@ kwt_dato
 #	Kruskal-Wallis rank sum test
 #
 #data:  width by species.stage
-#Kruskal-Wallis chi-squared = 666.64, df = 15, p-value < 2.2e-16
+#Kruskal-Wallis chi-squared = 889.77, df = 15, p-value < 2.2e-16
 
 kwt_dato$p.value
-#[1] 2.380006e-132
+#[1] 5.443754e-180
 
 
 
@@ -238,10 +257,10 @@ write.table(as.data.frame(dat_o %>% wilcox_test(width ~ species.stage,p.adjust.m
 
 
 
+######
+######
 
-
-
-##new data shows reproducibility and that the tail only modestly contributes to length difference
+##2019 data shows trend reproducibility and that the tail only modestly contributes to length difference
 #sep elegans and inopinata
 
 #load additional inopinata and elegans dauer data generated for revisions
@@ -355,6 +374,9 @@ dat_n %>% wilcox_test(length_no_tail ~ species)
 #1 length_no_tail C. inopinata C. elegans    34    51      132. 8.09e-11
 
 
+######
+######
+
 
 #length-width relationship across non-dauer stages
 
@@ -375,22 +397,24 @@ summary(ce_repr_fit)
 #
 #Residuals:
 #     Min       1Q   Median       3Q      Max
-#-283.572  -40.897   -0.135   36.963  194.144
+#-278.216  -40.836   -1.266   38.164  191.151
 #
 #Coefficients:
 #              Estimate Std. Error t value Pr(>|t|)
-#(Intercept)    62.2214    10.6027   5.868 1.56e-08 ***
-#ce_repr$width  14.4799     0.2532  57.194  < 2e-16 ***
+#(Intercept)    74.4180     9.4297   7.892  7.1e-14 ***
+#ce_repr$width  14.2658     0.2386  59.796  < 2e-16 ***
 #---
 #Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #
-#Residual standard error: 67.65 on 225 degrees of freedom
-#Multiple R-squared:  0.9356,	Adjusted R-squared:  0.9354
-#F-statistic:  3271 on 1 and 225 DF,  p-value: < 2.2e-16
+#Residual standard error: 66.5 on 275 degrees of freedom
+#Multiple R-squared:  0.9286,	Adjusted R-squared:  0.9283
+#F-statistic:  3576 on 1 and 275 DF,  p-value: < 2.2e-16
+
+
 summary(ce_repr_fit)$coefficients
 #              Estimate Std. Error   t value      Pr(>|t|)
-#(Intercept)   62.22140 10.6027330  5.868431  1.562474e-08
-#ce_repr$width 14.47988  0.2531729 57.193649 5.091459e-136
+#(Intercept)   74.41800  9.4297379  7.891842  7.101659e-14
+#ce_repr$width 14.26583  0.2385731 59.796464 1.246442e-159
 
 
 #inopinata non dauer stages
@@ -408,23 +432,23 @@ summary(ci_repr_fit)
 #
 #Residuals:
 #    Min      1Q  Median      3Q     Max
-#-577.42  -65.44   -8.30   44.63  433.87
+#-579.19  -72.75    2.15   59.60  462.85
 #
 #Coefficients:
-#              Estimate Std. Error t value Pr(>|t|)
-#(Intercept)   -80.9462    26.1831  -3.092  0.00235 **
-#ci_repr$width  23.8224     0.5764  41.327  < 2e-16 ***
+#               Estimate Std. Error t value Pr(>|t|)
+#(Intercept)   -134.4009    19.6268  -6.848 5.43e-11 ***
+#ci_repr$width   24.4499     0.4884  50.061  < 2e-16 ***
 #---
 #Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #
-#Residual standard error: 135.1 on 161 degrees of freedom
-#Multiple R-squared:  0.9139,	Adjusted R-squared:  0.9133
-#F-statistic:  1708 on 1 and 161 DF,  p-value: < 2.2e-16
+#Residual standard error: 125.2 on 259 degrees of freedom
+#Multiple R-squared:  0.9063,	Adjusted R-squared:  0.906
+#F-statistic:  2506 on 1 and 259 DF,  p-value: < 2.2e-16
 #coefficients
 summary(ci_repr_fit)$coefficients
-#               Estimate Std. Error  t value     Pr(>|t|)
-#(Intercept)   -80.94624 26.1831486 -3.09154 2.347217e-03
-#ci_repr$width  23.82239  0.5764307 41.32742 1.267441e-87
+#                Estimate Std. Error  t value      Pr(>|t|)
+#(Intercept)   -134.40089 19.6267562 -6.84784  5.425369e-11
+#ci_repr$width   24.44994  0.4884029 50.06101 3.441359e-135
 
 
 
@@ -435,18 +459,20 @@ dauers$species<-droplevels(dauers$species)
 dFrequencies <- xtabs( ~ is_above_regression + species, data = dauers)
 xtabs( formula = ~ is_above_regression + species, data = dauers)
 
+#                   species
 #is_above_regression C. elegans C. inopinata
-#        Dauer above        111            7
-#        Dauer below          2           90
+#        Dauer above        208           39
+#        Dauer below          6          137
 
 chisq.test(dFrequencies)
 
 #	Pearson's Chi-squared test with Yates' continuity correction
 #
 #data:  dFrequencies
-#X-squared = 171.96, df = 1, p-value < 2.2e-16
+#X-squared = 230.94, df = 1, p-value < 2.2e-16
 
-
+chisq.test(dFrequencies)$p.value
+#[1] 3.720297e-52
 
 #is there an interaction between species and width on length?
 
@@ -459,26 +485,27 @@ anova(m.interaction)
 #
 #Response: length
 #               Df   Sum Sq  Mean Sq F value    Pr(>F)
-#width           1 46847194 46847194 4555.08 < 2.2e-16 ***
-#species         1  4984021  4984021  484.61 < 2.2e-16 ***
-#width:species   1  2710655  2710655  263.56 < 2.2e-16 ***
-#Residuals     386  3969860    10285
+#width           1 52398628 52398628 5302.44 < 2.2e-16 ***
+#species         1  3520655  3520655  356.27 < 2.2e-16 ***
+#width:species   1  3693151  3693151  373.73 < 2.2e-16 ***
+#Residuals     534  5276983     9882
 #---
 #Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 #coefficients
 summary(m.interaction)$coefficients
 #                            Estimate Std. Error   t value      Pr(>|t|)
-#(Intercept)                 62.22140 15.8936529  3.914858  1.069269e-04
-#width                       14.47988  0.3795099 38.154161 4.802043e-133
-#speciesC. inopinata       -143.16764 25.2727388 -5.664904  2.879424e-08
-#width:speciesC. inopinata    9.34251  0.5754669 16.234660  1.506259e-45
+#(Intercept)                 74.41800 14.0952527  5.279650  1.886333e-07
+#width                       14.26583  0.3566110 40.003893 8.747959e-163
+#speciesC. inopinata       -208.81890 21.0112071 -9.938453  1.808583e-21
+#width:speciesC. inopinata   10.18411  0.5268014 19.331979  1.618760e-63
 
 #get coefficients for each species
 m.lst <- lstrends(m.interaction, "species", var="width")
 m.lst
 # species      width.trend    SE  df lower.CL upper.CL
-# C. elegans          14.5 0.380 386     13.7     15.2
-# C. inopinata        23.8 0.433 386     23.0     24.7
+# C. elegans          14.3 0.357 534     13.6     15.0
+# C. inopinata        24.4 0.388 534     23.7     25.2
+#
 #Confidence level used: 0.95
 
 # Compare slopes
@@ -486,8 +513,8 @@ pairs(m.lst)
 # contrast                  estimate    SE  df t.ratio p.value
 # C. elegans - C. inopinata    -9.34 0.575 386 -16.235 <.0001
 
-
-
+summary(pairs(m.lst))$p.value
+#[1] 1.61876e-63
 
 #permanova, size among species.stage groups
 
@@ -506,20 +533,20 @@ pmnva
 #
 #Terms added sequentially (first to last)
 #
-#                           Df SumsOfSqs MeanSqs F.Model      R2 Pr(>F)
-#dat_o$species               3   7819986 2606662  647.67 0.10430  0.001 ***
-#dat_o$stage                 6  56672987 9445498 2346.91 0.75589  0.001 ***
-#dat_o$species:dat_o$stage   6   7415890 1235982  307.10 0.09891  0.001 ***
-#Residuals                 762   3066788    4025         0.04090
-#Total                     777  74975651                 1.00000
+#                            Df SumsOfSqs  MeanSqs F.Model      R2 Pr(>F)
+#dat_o$species                3   3686528  1228843  242.02 0.04598  0.001 ***
+#dat_o$stage                  6  61531721 10255287 2019.75 0.76744  0.001 ***
+#dat_o$species:dat_o$stage    6   9425358  1570893  309.38 0.11756  0.001 ***
+#Residuals                 1090   5534470     5077         0.06903
+#Total                     1105  80178076                  1.00000
 #---
 #Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
 
 #do post-hoc pairwise tests to compare all groups
 post_hoc_pairwise_permanova <- pairwise.adonis(size_matrix,dat_o$species.stage,p.adjust.m="BH")
 
-#this is Supplemental Table Sheet 9 
-write.table(post_hoc_pairwise_permanova,file="sheet_9_post-hoc_pairwise_permanova_original_data.tsv",quote=FALSE,row.names = FALSE,sep="\t")
+#this is Supplemental Table Sheet 15 
+write.table(post_hoc_pairwise_permanova,file="sheet_15_post-hoc_pairwise_permanova_original_data.tsv",quote=FALSE,row.names = FALSE,sep="\t")
 
 
 
@@ -614,13 +641,13 @@ ggplot(clust_var,aes(x=k,y=BIC)) + geom_point() + theme_cowplot() + scale_x_cont
 
 #get best k that minimizes BIC
 clust_var[which.min(clust_var$BIC),]$k
-#[1] 7
+#[1] 8
 min(clust_var$BIC)
-#[1] 179.832
+#[1] 238.1134
 
-#min BIC is that of k = 7
+#min BIC is that of k = 8
 
-#so elbow test best k = 3-5, BIC = 7, and there are seven stages, four species, and 16 species.stage groups. Let's look at k=7.
+#so elbow test best k = 3-5, BIC = 8, and there are seven stages, four species, and 16 species.stage groups. Let's look at k=8.
 
 
 #set aside species
@@ -630,17 +657,25 @@ cb <- dat_o[dat_o$species=="C. briggsae",]
 ct <- dat_o[dat_o$species=="C. tropicalis",]
 
 
-#visualize k = 7
+#visualize k = 8
 
-dat_o$k7 <- as.factor(dat_o$k7)
+dat_o$k8 <- as.factor(dat_o$k8)
 dat_o$Stage <- dat_o$stage
 
-ggplot(dat_o, aes(x=width, y=length, colour=k7)) + geom_point(aes(shape=Stage),alpha=0.9) + facet_rep_wrap(~species,nrow=2) + scale_shape_manual(values=1:7) + theme_cowplot() + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442","#0072B2","#D55E00","#CC79A7","black")) + theme(strip.text.x = element_text(face = "italic"), strip.background = element_blank()) + xlab("Width (microns)") + ylab("Length (microns)") + xlim(0,100) + scale_y_continuous(limits=c(0,2000),breaks=c(0,250,500,750,1000,1250,1500,1750,2000)) + labs(colour="Cluster")
+#rename the dauer factor level for the reviewers
+
+#levels(dat_o$stage)[levels(dat_o$stage)=='Dauer*'] <- 'Dauer'
+
+levels(dat_o$Stage)[levels(dat_o$Stage)=='Dauer'] <- 'Dauer*'
+
+#this is supplemental figure 8
+ggplot(dat_o, aes(x=width, y=length, colour=k8)) + geom_point(aes(shape=Stage),alpha=0.9) + facet_rep_wrap(~species,nrow=2) + scale_shape_manual(values=1:7) + theme_cowplot() + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442","#0072B2","#D55E00","#CC79A7","gray")) + theme(strip.text.x = element_text(face = "italic"), strip.background = element_blank()) + xlab("Width (microns)") + ylab("Length (microns)") + xlim(0,100) + scale_y_continuous(limits=c(0,2000),breaks=c(0,250,500,750,1000,1250,1500,1750,2000)) + labs(colour="Cluster")
 
 
+#ggsave("supplemental_figure_8.pdf",height=7,width=7, units='in', useDingbats=FALSE)
 
-#this is supplemental figure 6
-#supplemental figure 7 below, other supplemental figures in figures.R
+
+#supplemental figure 9 & 10 below, other supplemental figures in figures.R
 
 #get chi square stats for all pairwise comparisons
 
@@ -657,7 +692,7 @@ species.stage.pairs.df$grp2 <- as.character(species.stage.pairs.df$grp2)
 #fix data
 dat_o_km <- dat_o
 
-dat_o_km$k7 <- as.factor(dat_o_km$k7)
+dat_o_km$k8 <- as.factor(dat_o_km$k8)
 dat_o_km$species.stage <- as.factor(dat_o_km$species.stage)
 
 p.df <- NULL
@@ -671,14 +706,14 @@ CS_func_ii = function(x){
 
 	grp2 <- x[2]
 
-	k7_df <- dat_o_km[dat_o_km$species.stage == grp1 | dat_o_km$species.stage == grp2,]
+	k8_df <- dat_o_km[dat_o_km$species.stage == grp1 | dat_o_km$species.stage == grp2,]
 	
-	k7_df$species.stage <- droplevels(k7_df$species.stage)
-	k7_df$k7 <- droplevels(k7_df$k7)
+	k8_df$species.stage <- droplevels(k8_df$species.stage)
+	k8_df$k8 <- droplevels(k8_df$k8)
 	
-	k7Frequencies <- xtabs( ~ k7 + species.stage, data = k7_df)
+	k8Frequencies <- xtabs( ~ k8 + species.stage, data = k8_df)
 
-	if(nrow(k7Frequencies)<=1){
+	if(nrow(k8Frequencies)<=1){
 
 	p.df <- rbind(p.df,data.frame(grp1 = grp1, grp2 = grp2, chisq_stat=NA,chisq_p=NA,fisher_p=NA))
 
@@ -686,7 +721,7 @@ CS_func_ii = function(x){
 
 	} else { 
 	
-	p.df <- rbind(p.df,data.frame(grp1 = grp1, grp2 = grp2, chisq_stat=as.numeric(chisq.test(k7Frequencies)$statistic),chisq_p=as.numeric(chisq.test(k7Frequencies)$p.value),fisher_p=fisher.test(k7Frequencies)$p.value))
+	p.df <- rbind(p.df,data.frame(grp1 = grp1, grp2 = grp2, chisq_stat=as.numeric(chisq.test(k8Frequencies)$statistic),chisq_p=as.numeric(chisq.test(k8Frequencies)$p.value),fisher_p=fisher.test(k8Frequencies, simulate.p.value=TRUE)$p.value))
 
 	print(p.df)}
 }
@@ -722,7 +757,7 @@ paste(num.sig,tot.comp,fra.sig)
 #in this framework, C. inopinata dauers are uniquely classified compared to all other species-stage groups
 
 #this is Supplemental Table Sheet 10
-write.table(CS_out_df,file="sheet_10_k_means_chisq_fet_pairwise_comparisons.tsv",quote=FALSE,row.names = FALSE,sep="\t")
+write.table(CS_out_df,file="sheet_16_k_means_chisq_fet_pairwise_comparisons.tsv",quote=FALSE,row.names = FALSE,sep="\t")
 
 #make supplemental figure 7
 #set aside species
@@ -735,13 +770,13 @@ ct <- dat_o[dat_o$species=="C. tropicalis",]
 
 #get counts of all classifications for all species and stages
 ci_stage_count <- count(ci,stage)
-ci_L1_k_count <- count(ci[ci$stage== "L1",],k7)
-ci_L2_k_count <- count(ci[ci$stage== "L2",],k7)
-ci_L3_k_count <- count(ci[ci$stage== "L3",],k7)
-ci_L4_k_count <- count(ci[ci$stage== "L4",],k7)
-ci_young_adult_k_count <- count(ci[ci$stage== "Young adult",],k7)
-ci_gravid_adult_k_count <- count(ci[ci$stage== "Gravid adult",],k7)
-ci_dauer_k_count <- count(ci[ci$stage== "Dauer",],k7)
+ci_L1_k_count <- count(ci[ci$stage== "L1",],k8)
+ci_L2_k_count <- count(ci[ci$stage== "L2",],k8)
+ci_L3_k_count <- count(ci[ci$stage== "L3",],k8)
+ci_L4_k_count <- count(ci[ci$stage== "L4",],k8)
+ci_young_adult_k_count <- count(ci[ci$stage== "Young adult",],k8)
+ci_gravid_adult_k_count <- count(ci[ci$stage== "Gravid adult",],k8)
+ci_dauer_k_count <- count(ci[ci$stage== "Dauer",],k8)
 
 ci_L1_k_count$fra_k <- ci_L1_k_count$n/ci_stage_count[ci_stage_count$stage=="L1",]$n
 ci_L2_k_count$fra_k <- ci_L2_k_count$n/ci_stage_count[ci_stage_count$stage=="L2",]$n
@@ -752,13 +787,13 @@ ci_gravid_adult_k_count$fra_k <- ci_gravid_adult_k_count$n/ci_stage_count[ci_sta
 ci_dauer_k_count$fra_k <- ci_dauer_k_count$n/ci_stage_count[ci_stage_count$stage=="Dauer",]$n
 
 ce_stage_count <- count(ce,stage)
-ce_L1_k_count <- count(ce[ce$stage== "L1",],k7)
-ce_L2_k_count <- count(ce[ce$stage== "L2",],k7)
-ce_L3_k_count <- count(ce[ce$stage== "L3",],k7)
-ce_L4_k_count <- count(ce[ce$stage== "L4",],k7)
-ce_young_adult_k_count <- count(ce[ce$stage== "Young adult",],k7)
-ce_gravid_adult_k_count <- count(ce[ce$stage== "Gravid adult",],k7)
-ce_dauer_k_count <- count(ce[ce$stage== "Dauer",],k7)
+ce_L1_k_count <- count(ce[ce$stage== "L1",],k8)
+ce_L2_k_count <- count(ce[ce$stage== "L2",],k8)
+ce_L3_k_count <- count(ce[ce$stage== "L3",],k8)
+ce_L4_k_count <- count(ce[ce$stage== "L4",],k8)
+ce_young_adult_k_count <- count(ce[ce$stage== "Young adult",],k8)
+ce_gravid_adult_k_count <- count(ce[ce$stage== "Gravid adult",],k8)
+ce_dauer_k_count <- count(ce[ce$stage== "Dauer",],k8)
 
 ce_L1_k_count$fra_k <- ce_L1_k_count$n/ce_stage_count[ce_stage_count$stage=="L1",]$n
 ce_L2_k_count$fra_k <- ce_L2_k_count$n/ce_stage_count[ce_stage_count$stage=="L2",]$n
@@ -794,35 +829,39 @@ ce2$species <- "C. elegans"
 
 
 cb_stage_count <- count(cb,stage)
-cb_dauer_k_count <- count(cb[cb$stage== "Dauer",],k7)
+cb_dauer_k_count <- count(cb[cb$stage== "Dauer",],k8)
 cb_dauer_k_count$fra_k <- cb_dauer_k_count$n/cb_stage_count[cb_stage_count$stage=="Dauer",]$n
 cb_dauer_k_count$stage <- "Dauer"
 cb_dauer_k_count$species <- "C. briggsae"
 
 ct_stage_count <- count(ct,stage)
-ct_dauer_k_count <- count(ct[ct$stage== "Dauer",],k7)
+ct_dauer_k_count <- count(ct[ct$stage== "Dauer",],k8)
 ct_dauer_k_count$fra_k <- ct_dauer_k_count$n/ct_stage_count[ct_stage_count$stage=="Dauer",]$n
 ct_dauer_k_count$stage <- "Dauer"
 ct_dauer_k_count$species <- "C. tropicalis"
 
-dat_k7 <- rbind(ci2,ce2,cb_dauer_k_count,ct_dauer_k_count)
+dat_k8 <- rbind(ci2,ce2,cb_dauer_k_count,ct_dauer_k_count)
 
-dat_k7$k7 <- as.factor(dat_k7$k7)
-
-
-dat_k7$stage <- factor(dat_k7$stage, levels = c("Dauer","L1", "L2", "L3", "L4", "Young adult", "Gravid adult"))
+dat_k8$k8 <- as.factor(dat_k8$k8)
 
 
-dat_k7$species <- factor(dat_k7$species, levels = c("C. elegans","C. inopinata", "C. briggsae", "C. tropicalis"))
+dat_k8$stage <- factor(dat_k8$stage, levels = c("Dauer","L1", "L2", "L3", "L4", "Young adult", "Gravid adult"))
 
 
+dat_k8$species <- factor(dat_k8$species, levels = c("C. elegans","C. inopinata", "C. briggsae", "C. tropicalis"))
 
-ggplot(dat_k7, aes(x = stage, y = n, fill = k7)) + geom_col() + facet_rep_wrap(~species,nrow=2) + scale_fill_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442","#0072B2","#D55E00","#CC79A7","black")) + theme_cowplot() + theme(axis.text.x = element_text(angle = 45,hjust=1), strip.text.x = element_text(face = "italic"),, strip.background = element_blank()) + ylim(0,170) + xlab("Stage") + ylab("Number of animals") + labs(fill="Cluster")
-	#this is supplemental figure 7
+#rename the dauer factor level for the reviewers
 
+#levels(dat_o$stage)[levels(dat_o$stage)=='Dauer*'] <- 'Dauer'
 
+levels(dat_k8$stage)[levels(dat_k8$stage)=='Dauer'] <- 'Dauer*'
 
-#for subsampling see subsample.R
+ggplot(dat_k8, aes(x = stage, y = n, fill = k8)) + geom_col() + facet_rep_wrap(~species,nrow=2) + scale_fill_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442","#0072B2","#D55E00","#CC79A7","gray")) + theme_cowplot() + theme(axis.text.x = element_text(angle = 45,hjust=1), strip.text.x = element_text(face = "italic"),, strip.background = element_blank()) + scale_y_continuous(limits=c(0,250),breaks=c(0,50,100,150,200,250)) + xlab("Stage") + ylab("Number of animals") + labs(fill="Cluster")
+
+#ggsave("supplemental_figure_9.pdf",height=7,width=7, units='in',useDingbats=FALSE)
+
+	#this is supplemental figure 9
+
 
 
 
@@ -838,7 +877,7 @@ library(caret)
 library(MASS)
 
 #reload data to get rid of k means crap
-dat_o <- read.table("original_length_width_data.tsv", sep="\t", header=T)
+dat_o <- read.table("length_width_data_2022_revision.tsv", sep="\t", header=T)
 dat_o$species <- factor(dat_o$species, levels = c("C. elegans","C. inopinata", "C. briggsae", "C. tropicalis"))
 dat_o$stage <- factor(dat_o$stage, levels = c("Dauer","L1", "L2", "L3", "L4", "Young adult", "Gravid adult"))
 
@@ -864,7 +903,7 @@ model <- lda(species~length+width, data = train.transformed)
 predictions <- model %>% predict(test.transformed)
 # Model accuracy (for all species)
 mean(predictions$class==test.transformed$species)
-#[1] 0.5657895
+#[1] 0.6071429
 
 #is the prediction correct?
 predictions$correct.prediction <- predictions$class==test.transformed$species
@@ -875,10 +914,10 @@ pred_df <- data.frame(class=predictions$class,correct.prediction=predictions$cor
 count(pred_df[pred_df$class=="C. inopinata",],correct.prediction)
 
 #  correct.prediction  n
-#1              FALSE  1
-#2               TRUE 18
+#1              FALSE  7
+#2               TRUE 29
 
-#0.9473684 accuracy for C. inopinata
+#0.8055556 accuracy for C. inopinata
 
 #now, do all of the data
 
@@ -896,31 +935,31 @@ model
 #
 #Prior probabilities of groups:
 #   C. elegans  C. inopinata   C. briggsae C. tropicalis
-#    0.2912371     0.2500000     0.2190722     0.2396907
+#    0.3767606     0.3098592     0.1496479     0.1637324
 #
 #Group means:
-#                   length      width
-#C. elegans    -0.04455042 -0.4451998
-#C. inopinata  -0.50102791  1.2648863
-#C. briggsae   -0.13645842 -0.5408137
-#C. tropicalis  0.70142871 -0.2840562
+#                  length      width
+#C. elegans     0.2718061 -0.2797330
+#C. inopinata  -0.5714920  0.9489425
+#C. briggsae   -0.1473135 -0.7498144
+#C. tropicalis  0.5907283 -0.4668473
 #
 #Coefficients of linear discriminants:
-#              LD1        LD2
-#length  0.7118029 -0.9520852
-#width  -1.5317487 -0.4107314
+#              LD1       LD2
+#length  0.8485344 -0.859560
+#width  -1.3417728 -0.519668
 #
 #Proportion of trace:
 #   LD1    LD2
-#0.9387 0.0613
+#0.9632 0.0368
 
 #visualize
 lda.data <- cbind(o_d.transformed, predict(model)$x)
 
-#this is supplemental figure 9
+#this is supplemental figure 10
 ggplot(lda.data, aes(LD1, LD2)) + geom_point(aes(color = species)) + scale_colour_manual(values=c("#E69F00","#56B4E9","#009E73","#F0E442")) + theme_cowplot() + theme(legend.text = element_text(face = "italic"))
 
-
+#ggsave("supplemental_figure_10.pdf",height=7,width=7, units='in')
 
 
 #dauer formation frequency
@@ -1080,3 +1119,253 @@ kruskal.test(fraction_dauer ~ temperature, data = sds_new_dat)
 #Kruskal-Wallis chi-squared = 0.014881, df = 1, p-value = 0.9029
 
 #no
+
+
+####
+####
+####
+####
+#reproducibility of length, width, length-width ratio
+####
+####
+####
+####
+
+dat_o <- read.table("length_width_data_2022_revision.tsv", sep="\t", header=T)
+
+dat_o$length.width.ratio <- dat_o$length/dat_o$width
+
+dat_o_L3D <- dat_o[dat_o$stage == "L3" | dat_o$stage == "Dauer",]
+
+dat_o_cice_L3D <- dat_o_L3D[dat_o_L3D$species == "C. inopinata" | dat_o_L3D$species == "C. elegans",]
+
+
+dat_o_cice_L3D$stage <-  droplevels(dat_o_cice_L3D$stage)
+dat_o_cice_L3D$species <-  droplevels(dat_o_cice_L3D$species)
+
+dat_o_cice_L3D$species.stage.exp <- paste(dat_o_cice_L3D$species,dat_o_cice_L3D$stage,dat_o_cice_L3D$observer_year)
+
+#summary statistics per group: length
+
+
+N_df <- count(dat_o_cice_L3D,species.stage.exp)
+
+sum_df <- aggregate(dat_o_cice_L3D$length,list(dat_o_cice_L3D$species.stage.exp), summary)
+#include sd
+sd_df<- aggregate(dat_o_cice_L3D$length,list(dat_o_cice_L3D$species.stage.exp), sd)
+#make new df
+stat_df<- data.frame(species.stage=sum_df$Group.1,N=N_df$n,round(sum_df[,-1]),sd=round(sd_df[,-1]))
+#this is Supplemental Table Sheet 9
+write.table(stat_df,"sheet_9_Dauer-L3_length_summary_statistics_across_experiments.tsv",sep="\t", quote=FALSE, row.names=FALSE)
+stat_df
+
+#                          species.stage   N Min. X1st.Qu. Median Mean X3rd.Qu. Max.  sd
+#1             C. elegans Dauer ESH 2017 113  333      399    444  456      496  662  65
+#2             C. elegans Dauer GCW 2019  51  476      536    553  558      575  665  36
+#3              C. elegans Dauer KM 2022  50  369      416    442  446      476  558  44
+#4    C. elegans L3 GCW Evol. Lett. 2018  36  403      502    520  518      538  642  47
+#5                 C. elegans L3 KM 2022  50  347      436    460  465      484  599  56
+#6           C. inopinata Dauer ESH 2017  97  326      399    432  429      462  524  45
+#7           C. inopinata Dauer GCW 2019  34  323      451    480  470      500  533  46
+#8            C. inopinata Dauer KM 2022  45  286      349    367  373      393  452  40
+#9  C. inopinata L3 GCW Evol. Lett. 2018  40  512      582    710  689      782  860 104
+#10              C. inopinata L3 KM 2022  98  359      476    522  535      569  747  82
+
+
+#summary statistics per group: width
+
+sum_df <- aggregate(dat_o_cice_L3D$width,list(dat_o_cice_L3D$species.stage.exp), summary)
+#include sd
+sd_df<- aggregate(dat_o_cice_L3D$width,list(dat_o_cice_L3D$species.stage.exp), sd)
+#make new df
+stat_df<- data.frame(species.stage=sum_df$Group.1,N=N_df$n,round(sum_df[,-1]),sd=round(sd_df[,-1]))
+#this is Supplemental Table Sheet 10
+write.table(stat_df,"sheet_10_Dauer-L3_width_summary_statistics_across_experiments.tsv",sep="\t", quote=FALSE, row.names=FALSE)
+stat_df
+
+#                          species.stage   N Min. X1st.Qu. Median Mean X3rd.Qu. Max. sd
+#1             C. elegans Dauer ESH 2017 113    9       16     17   18       21   28  4
+#2             C. elegans Dauer GCW 2019  51   17       19     21   21       23   29  2
+#3              C. elegans Dauer KM 2022  50   16       19     22   22       24   31  3
+#4    C. elegans L3 GCW Evol. Lett. 2018  36   28       29     31   31       32   39  3
+#5                 C. elegans L3 KM 2022  50   20       24     26   26       29   35  3
+#6           C. inopinata Dauer ESH 2017  97   19       24     26   27       29   44  4
+#7           C. inopinata Dauer GCW 2019  34   20       23     25   25       26   29  2
+#8            C. inopinata Dauer KM 2022  45   18       22     23   23       25   32  3
+#9  C. inopinata L3 GCW Evol. Lett. 2018  40   22       31     32   34       38   44  5
+#10              C. inopinata L3 KM 2022  98   19       27     29   29       31   39  4
+
+
+#percent differences in mean length among groups
+
+#get mean lengths per group
+lmean_df <- aggregate(dat_o_cice_L3D$length,list(dat_o_cice_L3D$species.stage.exp), mean)
+#get pairwise percent differences among those means
+lmean_perc_diffm <- ((outer(lmean_df$x, lmean_df$x, `-`))/lmean_df$x)*-100
+#round
+lmean_perc_diffm <- round(lmean_perc_diffm)
+#get column and row ids right
+colnames(lmean_perc_diffm) <- lmean_df$Group.1
+rownames(lmean_perc_diffm) <- lmean_df$Group.1
+
+#this is Supplemental Table Sheet 11
+write.table(lmean_perc_diffm,"sheet_11_Dauer-L3_length_pairwise_percent_differences_across_experiments.tsv",sep="\t", quote=FALSE,row.names=TRUE)
+
+
+
+#percent differences in mean width among groups
+
+#get mean widths per group
+wmean_df <- aggregate(dat_o_cice_L3D$width,list(dat_o_cice_L3D$species.stage.exp), mean)
+#get pairwise percent differences among those means
+wmean_perc_diffm <- ((outer(wmean_df$x, wmean_df$x, `-`))/wmean_df$x)*-100
+#round
+wmean_perc_diffm <- round(wmean_perc_diffm)
+#get column and row ids right
+colnames(wmean_perc_diffm) <- wmean_df$Group.1
+rownames(wmean_perc_diffm) <- wmean_df$Group.1
+#this is Supplemental Table Sheet 12
+write.table(wmean_perc_diffm,"sheet_12_Dauer-L3_width_pairwise_percent_differences_across_experiments.tsv",sep="\t", quote=FALSE,row.names=TRUE)
+
+
+##Cohen's d effect sizes for length among all group pairwise comparisons
+#
+#write.table(as.data.frame(dat_o_cice_L3D %>% cohens_d(length ~ species.stage.exp,ci = TRUE)), "Dauer-L3_length_pairwise_effect_sizes_across_experiments.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+#
+#
+##Cohen's d effect sizes for width among all group pairwise comparisons
+#
+#
+#write.table(as.data.frame(dat_o_cice_L3D %>% cohens_d(width ~ species.stage.exp,ci = TRUE)), "Dauer-L3_width_pairwise_effect_sizes_across_experiments.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+
+
+
+#Wilcoxon tests for width among all group pairwise comparisons
+
+#this is Supplemental Table Sheet 13
+write.table(as.data.frame(dat_o_cice_L3D %>% wilcox_test(length ~ species.stage.exp,p.adjust.method="BH")), "sheet_13_Dauer-L3_length_all_pairwise_wilcox_p_bh_adjusted_across_experiments.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+
+
+
+#this is Supplemental Table Sheet 14
+write.table(as.data.frame(dat_o_cice_L3D %>% wilcox_test(width ~ species.stage.exp,p.adjust.method="BH")), "sheet_14_Dauer-L3_width_all_pairwise_wilcox_p_bh_adjusted_across_experiments.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+
+
+
+
+#length-width ratio
+
+#get mean widths per group
+lwrmean_df <- aggregate(dat_o_cice_L3D$length.width.ratio,list(dat_o_cice_L3D$species.stage.exp), mean)
+#get pairwise percent differences among those means
+lwrmean_perc_diffm <- ((outer(lwrmean_df$x, lwrmean_df$x, `-`))/lwrmean_df$x)*-100
+#round
+lwrmean_perc_diffm <- round(lwrmean_perc_diffm)
+#get column and row ids right
+colnames(lwrmean_perc_diffm) <- lwrmean_df$Group.1
+rownames(lwrmean_perc_diffm) <- lwrmean_df$Group.1
+
+#write.table(lwrmean_perc_diffm,"Dauer-L3_LWR_pairwise_percent_differences_across_experiments.tsv",sep="\t", quote=FALSE,row.names=TRUE)
+#
+#
+#write.table(as.data.frame(dat_o_cice_L3D %>% cohens_d(length.width.ratio ~ species.stage.exp,ci = TRUE)), "Dauer-L3_LWR_pairwise_effect_sizes_across_experiments.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+#
+#
+#write.table(as.data.frame(dat_o_cice_L3D %>% wilcox_test(length.width.ratio ~ species.stage.exp,p.adjust.method="BH")), "Dauer-L3_LWR_all_pairwise_wilcox_p_bh_adjusted_across_experiments.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+
+
+
+
+#pharynx measurements
+
+
+pharynx_dat <- read.table("pharynx_2022.tsv", sep="\t", header=T)
+
+pharynx_dat$fra_phar_worm <- pharynx_dat$Isthmus_Width_Microns/pharynx_dat$Worm_Width_at_Isthmus_Microns
+
+pharynx_dat$species.stage <- paste(pharynx_dat$species,pharynx_dat$stage)
+
+N_df <- count(pharynx_dat,species.stage)
+N_df
+#       species.stage  n
+#1   C. elegans Dauer 50
+#2      C. elegans L3 50
+#3 C. inopinata Dauer 44
+#4    C. inopinata L3 97
+
+#pharynx width
+sum_df <- aggregate(pharynx_dat$Isthmus_Width_Microns,list(pharynx_dat$species.stage), summary)
+#include sd
+sd_df<- aggregate(pharynx_dat$Isthmus_Width_Microns,list(pharynx_dat$species.stage), sd)
+#make new df
+stat_df<- data.frame(species.stage=sum_df$Group.1,N=N_df$n,round(sum_df[,-1],1),sd=round(sd_df[,-1],1))
+
+#write.table(stat_df,"Pharynx_width_summary_statistics.tsv",sep="\t", quote=FALSE, row.names=FALSE)
+stat_df
+
+#       species.stage  N Min. X1st.Qu. Median Mean X3rd.Qu. Max.  sd
+#1   C. elegans Dauer 50  2.1      2.8    3.5  3.4      3.9  5.5 0.8
+#2      C. elegans L3 50  3.4      4.3    5.0  5.1      5.6  8.1 1.1
+#3 C. inopinata Dauer 44  2.0      2.5    3.0  3.1      3.6  5.0 0.7
+#4    C. inopinata L3 97  4.2      5.6    6.1  6.2      6.8  8.1 0.9
+
+#get mean widths per group
+pharynxmean_df <- aggregate(pharynx_dat$Isthmus_Width_Microns,list(pharynx_dat$species.stage), mean)
+#get pairwise percent differences among those means
+pharynxmean_perc_diffm <- ((outer(pharynxmean_df$x, pharynxmean_df$x, `-`))/pharynxmean_df$x)*-100
+#round
+pharynxmean_perc_diffm <- round(pharynxmean_perc_diffm,1)
+#get column and row ids right
+colnames(pharynxmean_perc_diffm) <- pharynxmean_df$Group.1
+rownames(pharynxmean_perc_diffm) <- pharynxmean_df$Group.1
+pharynxmean_perc_diffm
+
+#write.table(pharynxmean_perc_diffm,"Pharynx_width_pairwise_percent_differences.tsv",sep="\t", quote=FALSE,row.names=TRUE)
+
+
+#write.table(as.data.frame(pharynx_dat %>% cohens_d(Isthmus_Width_Microns ~ species.stage,ci = TRUE)), "Pharynx_width_pairwise_effect_sizes.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+
+#pairwise wilcox tests
+write.table(as.data.frame(pharynx_dat %>% wilcox_test(Isthmus_Width_Microns ~ species.stage,p.adjust.method="BH")), "Pharynx_width_all_pairwise_wilcox_p_bh_adjusted.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+
+
+
+
+#fraction total width
+
+
+#pharynx width
+sum_df <- aggregate(pharynx_dat$fra_phar_worm,list(pharynx_dat$species.stage), summary)
+#include sd
+sd_df<- aggregate(pharynx_dat$fra_phar_worm,list(pharynx_dat$species.stage), sd)
+#make new df
+stat_df<- data.frame(species.stage=sum_df$Group.1,N=N_df$n,round(sum_df[,-1],2),sd=round(sd_df[,-1],2))
+#this is Supplemental Table Sheet 2
+#write.table(stat_df,"Pharynx_fraction_of_total_width_summary_statistics.tsv",sep="\t", quote=FALSE, row.names=FALSE)
+stat_df
+
+#       species.stage  N Min. X1st.Qu. Median Mean X3rd.Qu. Max.   sd
+#1   C. elegans Dauer 50 0.10     0.15   0.17 0.17     0.19 0.24 0.03
+#2      C. elegans L3 50 0.14     0.18   0.20 0.20     0.23 0.30 0.04
+#3 C. inopinata Dauer 44 0.10     0.14   0.16 0.16     0.18 0.24 0.03
+#4    C. inopinata L3 97 0.15     0.18   0.21 0.21     0.23 0.27 0.03
+
+#get mean widths per group
+pharynxmean_df <- aggregate(pharynx_dat$fra_phar_worm,list(pharynx_dat$species.stage), mean)
+#get pairwise percent differences among those means
+pharynxmean_perc_diffm <- ((outer(pharynxmean_df$x, pharynxmean_df$x, `-`))/pharynxmean_df$x)*-100
+#round
+pharynxmean_perc_diffm <- round(pharynxmean_perc_diffm,2)
+#get column and row ids right
+colnames(pharynxmean_perc_diffm) <- pharynxmean_df$Group.1
+rownames(pharynxmean_perc_diffm) <- pharynxmean_df$Group.1
+pharynxmean_df
+
+#write.table(pharynxmean_perc_diffm,"Pharynx_fraction_of_total_width_pairwise_percent_differences.tsv",sep="\t", quote=FALSE,row.names=TRUE)
+
+
+#write.table(as.data.frame(pharynx_dat %>% cohens_d(fra_phar_worm ~ species.stage,ci = TRUE)), "Pharynx_fraction_of_total_width_pairwise_effect_sizes.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+
+#pairwise wilcox tests
+write.table(as.data.frame(pharynx_dat %>% wilcox_test(fra_phar_worm ~ species.stage,p.adjust.method="BH")), "Pharynx_fraction_of_total_width_all_pairwise_wilcox_p_bh_adjusted.tsv",sep="\t", quote=FALSE,row.names=FALSE)
+
