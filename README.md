@@ -43,14 +43,14 @@ sheet_15_post-hoc_pairwise_permanova_original_data.tsv
 sheet_16_k_means_chisq_fet_pairwise_comparisons.tsv
 ```
 
-These contain information regarding Supplemental Figure 14 "Variation in the size of _Caenorhabditis_ vectors" 
+These contain information regarding Supplemental Figure 14 "Variation in the size of _Caenorhabditis_ vectors." 
 ```
 c_elegans_vectors_cites.tsv
 vector_sizes_cites.tsv
 phylopic_silhouettes.tsv
 ```
 
-For one hundred subsamples of the data used for a previous version of this paper, checkout this folder
+For one hundred subsamples of the data used for a previous version of this paper, check out this folder.
 ```
 subsample
 ```
