@@ -1160,12 +1160,12 @@ write.table(stat_df,"sheet_9_Dauer-L3_length_summary_statistics_across_experimen
 stat_df
 
 #                          species.stage   N Min. X1st.Qu. Median Mean X3rd.Qu. Max.  sd
-#1             C. elegans Dauer ESH 2017 113  333      399    444  456      496  662  65
+#1             C. elegans Dauer EWH 2017 113  333      399    444  456      496  662  65
 #2             C. elegans Dauer GCW 2019  51  476      536    553  558      575  665  36
 #3              C. elegans Dauer KM 2022  50  369      416    442  446      476  558  44
 #4    C. elegans L3 GCW Evol. Lett. 2018  36  403      502    520  518      538  642  47
 #5                 C. elegans L3 KM 2022  50  347      436    460  465      484  599  56
-#6           C. inopinata Dauer ESH 2017  97  326      399    432  429      462  524  45
+#6           C. inopinata Dauer EWH 2017  97  326      399    432  429      462  524  45
 #7           C. inopinata Dauer GCW 2019  34  323      451    480  470      500  533  46
 #8            C. inopinata Dauer KM 2022  45  286      349    367  373      393  452  40
 #9  C. inopinata L3 GCW Evol. Lett. 2018  40  512      582    710  689      782  860 104
@@ -1184,12 +1184,12 @@ write.table(stat_df,"sheet_10_Dauer-L3_width_summary_statistics_across_experimen
 stat_df
 
 #                          species.stage   N Min. X1st.Qu. Median Mean X3rd.Qu. Max. sd
-#1             C. elegans Dauer ESH 2017 113    9       16     17   18       21   28  4
+#1             C. elegans Dauer EWH 2017 113    9       16     17   18       21   28  4
 #2             C. elegans Dauer GCW 2019  51   17       19     21   21       23   29  2
 #3              C. elegans Dauer KM 2022  50   16       19     22   22       24   31  3
 #4    C. elegans L3 GCW Evol. Lett. 2018  36   28       29     31   31       32   39  3
 #5                 C. elegans L3 KM 2022  50   20       24     26   26       29   35  3
-#6           C. inopinata Dauer ESH 2017  97   19       24     26   27       29   44  4
+#6           C. inopinata Dauer EWH 2017  97   19       24     26   27       29   44  4
 #7           C. inopinata Dauer GCW 2019  34   20       23     25   25       26   29  2
 #8            C. inopinata Dauer KM 2022  45   18       22     23   23       25   32  3
 #9  C. inopinata L3 GCW Evol. Lett. 2018  40   22       31     32   34       38   44  5
